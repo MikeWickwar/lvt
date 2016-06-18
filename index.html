@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="LVT">
+  <head>
+    <meta charset="utf-8">
+    <title>Mikey's Las Vegas Tip Guide</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/index.css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body ng-controller="MainController" class="col-lg-10 col-lg-offset-1">
+    <header class="">
+      <div class="mainHeaderBanner row">
+        Welcome to Mikey's Las Vegas Trip Guide!
+      </div>
+      <nav class="navbar navbar-default row">
+        <div class="btnContainer col-lg-1">
+          <span class="icon-bar"><a href="/#/">Home</a></span>
+        </div>
+        <div class="btnContainer col-lg-1">
+          <span class="icon-bar"><a href="/#/about">About</a></span>
+        </div>
+        <div class="btnContainer col-lg-1">
+          <span class="icon-bar"><a href="/#/signup">signup</a></span>
+        </div>
+      </nav>
+    </header>
+    <div ng-view class="view">
+    </div>
+    <script type="text/javascript" src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.4.3/angular-route.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-animate.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/app.js"></script>
+    <script type="text/javascript" src="./js/services.js"></script>
+    <script type="text/javascript" src="./js/controllers/main_controller.js"></script>
+    <script type="text/javascript" src="./js/directives/main.js"></script>
+  </body>
+</html>
