@@ -1,10 +1,10 @@
-var app = angular.module('meantea', ['ngRoute', 'ngAnimate']);
+var app = angular.module('LVT', ['ngRoute', 'ngAnimate']);
 
 app.config(function($routeProvider) {
     $routeProvider
       .when('/', {
         controller: "MainController",
-        templateUrl: "js/partials/main_shopping.html"
+        templateUrl: "js/partials/main_splash.html"
       })
       // .when('/checkout', {
       //   controller: "BagController",

@@ -1,3 +1,10 @@
 body{
-  background-color: red;
+  height: 100vh;
+  width: 100vw;
+  display:flex;
+  justify-content: center;
+}
+.view{
+  height: 100vh;
+  width: 100vw;
 }

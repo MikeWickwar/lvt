@@ -1,0 +1,35 @@
+#appbody{
+  height: 100%;
+  width: 100%;
+}
+.mainHeaderBanner{
+  background-color: black;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+h1#headerWelcome{
+  color: white;
+}
+#divMikeyMsg{
+  color: green;
+}
+#divUserLogin,
+#userLogin{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#userLogin{
+  width: 50%;
+  height: 400px;
+  background-image: url(https://pixabay.com/static/uploads/photo/2013/11/28/11/31/pin-up-girl-220301_960_720.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#divUserLogin > *{
+  margin-bottom: 10px;
+}

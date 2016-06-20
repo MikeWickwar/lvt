@@ -1,7 +1,7 @@
 //this needs stripping and customizing for what this app needs, pulled from mean tea
-
-app.controller('MainController', ['$scope','$http','jsonService','catsService','cartService','$q',
- function ($scope, $http, jsonService, catsService, cartService, $q) {
+//any services need to be injected in the controller
+app.controller('MainController', ['$scope','$http','$q',
+ function ($scope, $http, $q) {
    $scope.test = "This shit came from the controller"
   // var cats = [];
   // $scope.sortby = "";
