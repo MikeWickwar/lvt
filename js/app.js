@@ -1,16 +1,19 @@
-var app = angular.module('LVT', ['ngRoute', 'ngAnimate']);
+var app = angular.module('LVT', ['ui.router', 'ngAnimate']);
 
-app.config(function($routeProvider) {
-    $routeProvider
-      .when('/', {
+app.config(function($stateProvider, $urlRouterProvider) {
+    $stateProvider
+      .state('index', {
+        url: "",
         controller: "MainController",
         templateUrl: "js/partials/main_splash.html"
       })
-      // .when('/checkout', {
-      //   controller: "BagController",
-      //   templateUrl: "js/partials/checkout.html"
-      // })
-      .otherwise({
-        template: '<div><h1>No Page Located Here</h1></div>'
+      .state('dashboard', {
+        url: "/home",
+        controller: "MainController",
+        templateUrl: "js/partials/dashboard.html",
+        authenticate: true
       })
+
+      $urlRouterProvider.otherwise("/")
+      //place an otherwise in this for a 404 sitautation
 });

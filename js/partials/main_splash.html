@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="../../css/splash.css">
 
 <div class="" id="appbody">
-  <h1 id="divMikeyMsg" class="mainHeaderBanner">this is going to be the main splash page! Get your shit ready!</h1>
+  <h1 id="divMikeyMsg" class="mainHeaderBanner">{{3+1}}this is going to be the main splash page! Get your shit ready!</h1>
 
   <!--  reference meantea-->
   <div class="mainHeaderBanner">
@@ -9,10 +9,10 @@
   </div>
 
   <div id="userLogin" class="row col-lg-6 col-lg-offset-3">
-    <form action="#" id="divUserLogin">
-      <textarea class="form-control" name="user" rows="1" cols="30" placeholder="User"></textarea>
-      <textarea name="password" rows="1" cols="30" placeholder="Password"></textarea>
-      <input type="button" name="submit" value="Log in" class="btn btn-primary">
+    <form id="divUserLogin">
+      <input class="form-control" ng-model="user.user" name="user" rows="1" cols="30" placeholder="User"></input>
+      <input type="password" g-model="user.password" name="password" rows="1" cols="30" placeholder="Password"></input>
+      <input ng-click="onUserLogin()" type="button" name="submit" value="Log in" class="btn btn-primary">
     </form>
 
   </div>
