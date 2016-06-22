@@ -1,10 +1,11 @@
 app.factory('AuthService', function () {
   return {
     isAuthenticated: function () {
-      var user = $scope.user.user
-      var password = $scope.user.password
-      console.log('checking auth', user, password);
-      return user === 'Mikey' && password === 'mofo';
-    }
+      //this should really check whatever
+      var user = $("#user").val()
+      var password = $("#password").val()
+     console.log(user, password, "checking...");
+     return user === "Mikey" && password === "MoFo";
+   }
   }
 })

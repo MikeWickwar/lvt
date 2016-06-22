@@ -5,10 +5,10 @@ app.controller('MainController', ['$scope','$http','$q', '$state',
    $scope.user = { user : "",
                    password : ""
                  }
-   $scope.onUserLogin = function(){
+   $scope.onUserLogin = function(e){
       console.log( "userlogin function hit");
-        console.log($scope.user.user);
-        $state.transitionTo("dashboard", [$scope.user.user, $scope.user.password]);
+        console.log(e);
+        $state.transitionTo("dashboard");
       }
 
   }])
