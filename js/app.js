@@ -3,7 +3,7 @@ var app = angular.module('LVT', ['ui.router', 'ngAnimate']);
 app.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('index', {
-        url: "",
+        url: "/",
         controller: "MainController",
         templateUrl: "js/partials/main_splash.html"
       })
