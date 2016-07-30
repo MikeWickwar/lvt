@@ -2,6 +2,8 @@
 //any services need to be injected in the controller
 app.controller('MainController', ['$scope','$http','$q', '$state',
  function ($scope, $http, $q, $state) {
+
+   console.log('test');
    $scope.user = { user : "",
                    password : ""
                  }
