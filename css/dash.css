@@ -1,5 +1,22 @@
 #vegasMap{
   height: 70vh;
   width: 100%;
-  background-color: wheat;
+}
+#locationList{
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  overflow: auto;
+  justify-content: center;
+  margin-top:15px;
+}
+.locationLink{
+  font-size: 16px;
+  color: white;
+  margin-right: 15px;
+}
+.locationLink:hover,
+.locationLink:active,
+.locationLink:focus{
+  color: gold;
 }

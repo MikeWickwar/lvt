@@ -4,3 +4,8 @@
 
 
 </div>
+<div id="locationList">
+  <div class="location" ng-repeat="marker in markers | orderBy : 'title'">
+    <a class="locationLink" href="#" ng-click="openInfoWindow($event, marker)">{{marker.title}}</a>
+  </div>
+</div>
