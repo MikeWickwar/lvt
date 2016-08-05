@@ -9,7 +9,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       })
       .state('dashboard', {
         url: "/home",
-        controller: "MainController",
+        controller: "VegasMapCtrl",
         templateUrl: "js/partials/dashboard.html",
         authenticate: true
       })
