@@ -13,6 +13,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
         templateUrl: "js/partials/dashboard.html",
         authenticate: true
       })
+      .state('maptest', {
+        url: "/maptest",
+        controller: "MapCtrl",
+        templateUrl: "js/partials/testmap.html",
+        authenticate: true
+      })
 
       $urlRouterProvider.otherwise("/")
       //place an otherwise in this for a 404 sitautation
