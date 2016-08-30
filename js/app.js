@@ -13,10 +13,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
         templateUrl: "js/partials/dashboard.html",
         authenticate: true
       })
-      .state('maptest', {
-        url: "/maptest",
-        controller: "MapCtrl",
-        templateUrl: "js/partials/testmap.html",
+      .state('stripmap', {
+        url: "/stripmap",
+        controller: "StripMapCtrl",
+        templateUrl: "js/partials/stripmap.html",
         authenticate: true
       })
 
