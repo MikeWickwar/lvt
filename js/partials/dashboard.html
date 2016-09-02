@@ -1,11 +1,25 @@
 <h1>User Dashboard</h1>
 
-<div id="vegasMap">
+<div ng-controller='VegasMapCtrl'>
+  <div id="vegasMap">
 
 
+  </div>
+  <div id="locationList">
+    <div class="location" ng-repeat="marker in markers | orderBy : 'title'">
+      <a class="locationLink" href="#" ng-click="openInfoWindow($event, marker)">{{marker.title}}</a>
+    </div>
+  </div>
 </div>
-<div id="locationList">
-  <div class="location" ng-repeat="marker in markers | orderBy : 'title'">
-    <a class="locationLink" href="#" ng-click="openInfoWindow($event, marker)">{{marker.title}}</a>
+
+<div ng-controller='StripMapCtrl'>
+  <div id="vegasStripMap">
+
+
+  </div>
+  <div id="locationList">
+    <div class="location" ng-repeat="marker in markers | orderBy : 'title'">
+      <a class="locationLink" href="#" ng-click="openInfoWindow($event, marker)">{{marker.title}}</a>
+    </div>
   </div>
 </div>

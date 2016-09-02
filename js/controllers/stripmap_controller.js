@@ -1,5 +1,5 @@
 /* Data points defined as an array of LatLng objects */
-var heatmapData = [
+var heatmapDataStrip = [
   //The stratosphere
   {location: new google.maps.LatLng(36.146129,-115.160683), weight: 100020},
   // circus circus
@@ -22,7 +22,7 @@ var heatmapData = [
   {location: new google.maps.LatLng(36.1688819,-115.1391032), weight: 122222}
 ];
 
-var dealLocations = [
+var dealLocationsStrip = [
     {
         casino : 'The Stratosphere',
         desc : 'This thing is gigantic!',
@@ -89,7 +89,7 @@ app.controller('StripMapCtrl', function ($scope) {
   $("html").css('background-image', 'url(https://www.excalibur.com/content/dam/MGM/excalibur/casino/poker/excalibur-casino-poker-chips.tif)')
   var lasVegas = new google.maps.LatLng(36.113679, -115.142809);
 
-  $scope.map = new google.maps.Map(document.getElementById('vegasMap'), {
+  $scope.map = new google.maps.Map(document.getElementById('vegasStripMap'), {
   center: lasVegas,
   zoom: 13
   });
@@ -99,7 +99,7 @@ app.controller('StripMapCtrl', function ($scope) {
   var infoWindow = new google.maps.InfoWindow();
 
   var heatmap = new google.maps.visualization.HeatmapLayer({
-  data: heatmapData,
+  data: heatmapDataStrip,
   radius: 20
   });
   heatmap.setMap($scope.map);
@@ -123,8 +123,8 @@ app.controller('StripMapCtrl', function ($scope) {
 
   }
 
-  for (i = 0; i < dealLocations.length; i++){
-    createMarker(dealLocations[i]);
+  for (i = 0; i < dealLocationsStrip.length; i++){
+    createMarker(dealLocationsStrip[i]);
   }
 
   $scope.openInfoWindow = function(e, selectedMarker){
