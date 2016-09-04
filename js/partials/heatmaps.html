@@ -1,6 +1,10 @@
-<h1>User Dashboard</h1>
+<div class="mw-header" id="mapsHeader">
+  <h1><i class="fa fa-fire" aria-hidden="true"></i>Heat Maps<i class="fa fa-fire" aria-hidden="true"></i></h1>
 
-<div ng-controller='VegasMapCtrl'>
+  <input class="btn btn-danger" id="btnMapToggler" type="button" name="toggleMaps" value="Show Me The Strip Map">
+</div>
+
+<div>
   <div id="vegasMap">
 
 
@@ -12,7 +16,7 @@
   </div>
 </div>
 
-<div ng-controller='StripMapCtrl'>
+<div ng-controller='StripMapCtrl' id="stripmap">
   <div id="vegasStripMap">
 
 

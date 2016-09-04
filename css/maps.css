@@ -1,3 +1,6 @@
+#btnMapToggler{
+  height: 30px;
+}
 #vegasStripMap,
 #vegasMap{
   height: 70vh;
