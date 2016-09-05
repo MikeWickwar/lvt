@@ -1,7 +1,7 @@
 //this needs stripping and customizing for what this app needs, pulled from mean tea
 //any services need to be injected in the controller
-app.controller('MainController', ['$scope','$http','$q', '$state', 'stripService',
- function ($scope, $http, $q, $state, stripService) {
+app.controller('MainController', ['$scope','$http','$q', '$state', 'mapService',
+ function ($scope, $http, $q, $state, mapService) {
 
    console.log('test');
    $scope.user = { user : "",
@@ -13,12 +13,17 @@ app.controller('MainController', ['$scope','$http','$q', '$state', 'stripService
         $state.transitionTo("dashboard");
       }
 
+    var initCount = 0;
+
     $("#btnMapToggler").on("click", function(){
         console.log("btn map toggler has been clicked");
-        $("#stripMapDiv").toggle();
-        $("#vegasMapDiv").toggle();
+        $("#stripMapDiv").slideToggle();
+        $("#vegasMapDiv").slideToggle();
 
-        stripService.initStripMap();
+        if (initCount === 0) {
+            mapService.initStripMap()
+            initCount++
+        }
 
     })
 
@@ -27,7 +32,7 @@ app.controller('MainController', ['$scope','$http','$q', '$state', 'stripService
       console.log("shhhitt not it");
     }
 
-    $scope.toggler = true;
+    mapService.initVegasMap();
 
 
   }])
