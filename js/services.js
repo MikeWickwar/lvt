@@ -1,3 +1,6 @@
+var dmarkers = [];
+var stripmarkers = [];
+
 app.factory('mapService', function($http) {
     var promise;
     var jsondata = {
@@ -9,8 +12,6 @@ app.factory('mapService', function($http) {
           center: lasVegas,
           zoom: 13
           });
-
-          var markers = [];
 
           var infoWindow = new google.maps.InfoWindow();
 
@@ -34,8 +35,7 @@ app.factory('mapService', function($http) {
                 infoWindow.open(map, marker);
             });
 
-
-            markers.push(marker);
+            stripmarkers.push(marker);
 
 
           }
@@ -59,7 +59,6 @@ app.factory('mapService', function($http) {
           zoom: 16
           });
 
-          var markers = [];
 
           var infoWindow = new google.maps.InfoWindow();
 
@@ -84,7 +83,7 @@ app.factory('mapService', function($http) {
                 infoWindow.open(map, marker);
             });
 
-            markers.push(marker);
+            dmarkers.push(marker);
 
           }
 
