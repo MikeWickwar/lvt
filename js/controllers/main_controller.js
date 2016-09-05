@@ -32,7 +32,6 @@ app.controller('MainController', ['$scope','$http','$q', '$state', 'mapService',
       console.log("shhhitt not it");
     }
 
-    mapService.initVegasMap();
 
 
   }])

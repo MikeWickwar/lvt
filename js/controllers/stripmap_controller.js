@@ -1,6 +1,7 @@
 
 //Angular App Module and Controller
-app.controller('StripMapCtrl', function ($scope) {
+app.controller('StripMapCtrl', ['$scope', 'mapService', function ($scope, mapService) {
+    mapService.initVegasMap();
 
     $scope.casinos = dealLocationsStrip;
 
@@ -16,4 +17,4 @@ app.controller('StripMapCtrl', function ($scope) {
     $("#stripMapDiv").toggle();
 
 
-});
+}]);
