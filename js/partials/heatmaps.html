@@ -1,14 +1,11 @@
-<div class="mw-header" id="mapsHeader">
+<div class="mw-header" id="mapsHeader" ng-controller="MainController">
   <h1><i class="fa fa-fire" aria-hidden="true"></i>Heat Maps<i class="fa fa-fire" aria-hidden="true"></i></h1>
 
-  <input class="btn btn-danger" id="btnMapToggler" type="button" name="toggleMaps" value="Show Me The Strip Map">
+  <input ng-click="test()" class="btn btn-danger" id="btnMapToggler" type="button" name="toggleMaps" value="Show Me The Strip Map">
 </div>
 
-<div>
-  <div id="vegasMap">
-
-
-  </div>
+<div ng-controller="VegasMapCtrl" id="vegasMapDiv">
+  <div id="vegasMap"></div>
   <div id="locationList">
     <div class="location" ng-repeat="marker in markers | orderBy : 'title'">
       <a class="locationLink" href="#" ng-click="openInfoWindow($event, marker)">{{marker.title}}</a>
@@ -16,11 +13,8 @@
   </div>
 </div>
 
-<div ng-controller='StripMapCtrl' id="stripmap">
-  <div id="vegasStripMap">
-
-
-  </div>
+<div ng-controller='StripMapCtrl' id="stripMapDiv">
+  <div id="vegasStripMap"></div>
   <div id="locationList">
     <div class="location" ng-repeat="marker in markers | orderBy : 'title'">
       <a class="locationLink" href="#" ng-click="openInfoWindow($event, marker)">{{marker.title}}</a>

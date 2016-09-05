@@ -86,51 +86,58 @@ var dealLocationsStrip = [
 ];
 //Angular App Module and Controller
 app.controller('StripMapCtrl', function ($scope) {
-  $("html").css('background-image', 'url(https://www.excalibur.com/content/dam/MGM/excalibur/casino/poker/excalibur-casino-poker-chips.tif)')
-  var lasVegas = new google.maps.LatLng(36.113679, -115.142809);
 
-  $scope.map = new google.maps.Map(document.getElementById('vegasStripMap'), {
-  center: lasVegas,
-  zoom: 13
-  });
+    $("html").css('background-image', 'url(https://www.excalibur.com/content/dam/MGM/excalibur/casino/poker/excalibur-casino-poker-chips.tif)')
+    var lasVegas = new google.maps.LatLng(36.113679, -115.142809);
 
-  $scope.markers = [];
-
-  var infoWindow = new google.maps.InfoWindow();
-
-  var heatmap = new google.maps.visualization.HeatmapLayer({
-  data: heatmapDataStrip,
-  radius: 20
-  });
-  heatmap.setMap($scope.map);
-
-
-  var createMarker = function (info){
-
-    var marker = new google.maps.Marker({
-        map: $scope.map,
-        position: new google.maps.LatLng(info.lat, info.long),
-        title: info.casino
-    });
-    marker.content = '<div class="infoWindowContent">' + info.desc + '</div>';
-
-    google.maps.event.addListener(marker, 'click', function(){
-        infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
-        infoWindow.open($scope.map, marker);
+    $scope.map = new google.maps.Map(document.getElementById('vegasStripMap'), {
+    center: lasVegas,
+    zoom: 13
     });
 
-    $scope.markers.push(marker);
+    $scope.markers = [];
 
-  }
+    var infoWindow = new google.maps.InfoWindow();
 
-  for (i = 0; i < dealLocationsStrip.length; i++){
-    createMarker(dealLocationsStrip[i]);
-  }
+    var heatmap = new google.maps.visualization.HeatmapLayer({
+    data: heatmapDataStrip,
+    radius: 20
+    });
+    heatmap.setMap($scope.map);
 
-  $scope.openInfoWindow = function(e, selectedMarker){
-    e.preventDefault();
-    google.maps.event.trigger(selectedMarker, 'click');
-  }
+
+    var createMarker = function (info){
+
+      var marker = new google.maps.Marker({
+          map: $scope.map,
+          position: new google.maps.LatLng(info.lat, info.long),
+          title: info.casino
+      });
+      marker.content = '<div class="infoWindowContent">' + info.desc + '</div>';
+
+      google.maps.event.addListener(marker, 'click', function(){
+          infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
+          infoWindow.open($scope.map, marker);
+      });
+
+
+      $scope.markers.push(marker);
+
+
+    }
+
+    for (i = 0; i < dealLocationsStrip.length; i++){
+      createMarker(dealLocationsStrip[i]);
+    }
+
+    $scope.openInfoWindow = function(e, selectedMarker){
+      e.preventDefault();
+      google.maps.event.trigger(selectedMarker, 'click');
+    }
+
+  //toggling map stuff
+
+    $("#stripMapDiv").toggle();
 
 
 });

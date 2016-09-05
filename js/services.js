@@ -1,53 +1,56 @@
-// app.factory('jsonService', function($http) {
-//     var promise;
-//     var jsondata = {
-//         get: function() {
-//             if ( !promise ) {
-//                 var promise =  $http.get('../json/teas.json').success(function(response) {
-//                     return response.data;
-//                 });
-//                 return promise;
-//             }
-//         }
-//     };
-//     return jsondata;
-// });
-// app.factory('catsService', function () {
-//   var categories = []
-//   var jsondata = {
-//       get: function (data) {
-//         data.forEach(function (item) {
-//            item.categories.forEach(function (cat) {
-//              if (($.inArray(cat, categories)) >= 0) {
-//              }else {
-//                categories.push(cat)
-//              }
-//            })
-//          })
-//       return categories
-//     }
-//   }
-//   return jsondata
-// })
-// app.factory('cartService', function () {
-//   var cart = []
-//   var jsondata = {
-//     get: function () {
-//       return cart
-//     },
-//     post: function (item) {
-//       cart.forEach(function (thingInCart) {
-//         if (item.item === thingInCart.item) {
-//           console.log('Iam already in here');
-//           item.quantity = parseInt(item.quantity) + parseInt(thingInCart.quantity);
-//           item = {item:item.item, quantity:item.quantity, price:item.price};
-//           cart.splice(cart.indexOf(thingInCart), 1)
-//           console.log(thingInCart);
-//         }
-//
-//       })
-//       return cart.push(item)
-//     }
-//   }
-//   return jsondata
-// })
+app.factory('stripService', function($http) {
+    var promise;
+    var jsondata = {
+        initStripMap: function() {
+          $("html").css('background-image', 'url(https://www.excalibur.com/content/dam/MGM/excalibur/casino/poker/excalibur-casino-poker-chips.tif)')
+          var lasVegas = new google.maps.LatLng(36.113679, -115.142809);
+
+          var map = new google.maps.Map(document.getElementById('vegasStripMap'), {
+          center: lasVegas,
+          zoom: 13
+          });
+
+          var markers = [];
+
+          var infoWindow = new google.maps.InfoWindow();
+
+          var heatmap = new google.maps.visualization.HeatmapLayer({
+          data: heatmapDataStrip,
+          radius: 20
+          });
+          heatmap.setMap(map);
+
+
+          var createMarker = function (info){
+
+            var marker = new google.maps.Marker({
+                map: map,
+                position: new google.maps.LatLng(info.lat, info.long),
+                title: info.casino
+            });
+            marker.content = '<div class="infoWindowContent">' + info.desc + '</div>';
+
+            google.maps.event.addListener(marker, 'click', function(){
+                infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
+                infoWindow.open(map, marker);
+            });
+
+
+            markers.push(marker);
+
+
+          }
+
+          for (i = 0; i < dealLocationsStrip.length; i++){
+            createMarker(dealLocationsStrip[i]);
+          }
+
+          var openInfoWindow = function(e, selectedMarker){
+            e.preventDefault();
+            google.maps.event.trigger(selectedMarker, 'click');
+          }
+
+        }
+    };
+    return jsondata;
+});
