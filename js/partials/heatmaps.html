@@ -1,14 +1,14 @@
-<div class="mw-header" id="mapsHeader" ng-controller="MainController">
+<div class="mw-header" id="mapsHeader">
   <h1><i class="fa fa-fire" aria-hidden="true"></i>Heat Maps<i class="fa fa-fire" aria-hidden="true"></i></h1>
 
-  <input ng-click="test()" class="btn btn-danger" id="btnMapToggler" type="button" name="toggleMaps" value="Show Me The Strip Map">
+  <input class="btn btn-danger" id="btnMapToggler" type="button" name="toggleMaps" value="Show Me {{mapName}}">
 </div>
 
 <div ng-controller="VegasMapCtrl" id="vegasMapDiv">
   <div id="vegasMap"></div>
   <div id="locationList">
     <div class="location" ng-repeat="marker in markers | orderBy : 'title'">
-      <a class="locationLink" href="#" ng-mouseover="openInfoWindow($event, marker)" ng-click="openInfoWindow($event, marker)">{{marker.title}}</a>
+      <a class="locationLink" href="#" ng-mouseover="openInfoWindow($event, marker)" ng-click="hotelPanelInit($event, marker.title)">{{marker.title}}</a>
     </div>
   </div>
 </div>
@@ -17,7 +17,13 @@
   <div id="vegasStripMap"></div>
   <div id="locationList">
     <div class="location" ng-repeat="marker in markers | orderBy : 'title'">
-      <a class="locationLink" href="#" ng-mouseover="openInfoWindow($event, marker)" ng-click="openInfoWindow($event, marker)">{{marker.title}}</a>
+      <a class="locationLink" href="#" ng-mouseover="openInfoWindow($event, marker)" ng-click="hotelPanelInit($event, marker.title)">{{marker.title}}</a>
     </div>
+  </div>
+</div>
+
+<div class="hotelPanelWrapper" id="hotelPanelWrapper" >
+  <div class="hotelPanel">
+    <h1>{{hotelName}}</h1>
   </div>
 </div>

@@ -9,7 +9,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       })
       .state('dashboard', {
         url: "/home",
-        controller: "VegasMapCtrl",
+        controller: "hotelMapsPanelCtrl",
         templateUrl: "js/partials/heatmaps.html",
         authenticate: true
       })

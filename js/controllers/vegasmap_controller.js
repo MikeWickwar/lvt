@@ -1,6 +1,7 @@
 
 //Angular App Module and Controller
-app.controller('VegasMapCtrl', function ($scope) {
+app.controller('VegasMapCtrl', ['$scope', 'mapService', function ($scope, mapService) {
+  mapService.initVegasMap();
 
   $scope.casinos = dealLocations;
 
@@ -12,8 +13,16 @@ app.controller('VegasMapCtrl', function ($scope) {
     google.maps.event.trigger(selectedMarker, 'click')
   }
 
+  $scope.hotelPanelInit = function(e){
+    e.preventDefault()
+    $("#stripMapDiv").hide();
+    $("#vegasMapDiv").hide();
+    $("#hotelPanelWrapper").slideToggle();
+    $("btnMapToggler").text("Back to the Maps")
+
+  }
+
   console.log($scope.markers, " testy scoopey googley mapey");
-  $("#stripMapDiv").toggle();
 
 
-});
+}]);

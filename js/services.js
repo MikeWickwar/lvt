@@ -1,16 +1,17 @@
-var dmarkers = [];
 var stripmarkers = [];
+var dmarkers = [];
 
 app.factory('mapService', function($http) {
     var promise;
     var jsondata = {
         initStripMap: function() {
           $("html").css('background-image', 'url(https://www.excalibur.com/content/dam/MGM/excalibur/casino/poker/excalibur-casino-poker-chips.tif)')
-          var lasVegas = new google.maps.LatLng(36.113679, -115.142809);
+          var lasVegas = new google.maps.LatLng(36.1146532, -115.1742412);
+          stripmarkers = [];
 
           var map = new google.maps.Map(document.getElementById('vegasStripMap'), {
           center: lasVegas,
-          zoom: 13
+          zoom: 14
           });
 
           var infoWindow = new google.maps.InfoWindow();
@@ -53,6 +54,7 @@ app.factory('mapService', function($http) {
         initVegasMap: function(){
           $("html").css('background-image', 'url(https://www.excalibur.com/content/dam/MGM/excalibur/casino/poker/excalibur-casino-poker-chips.tif)')
           var lasVegas = new google.maps.LatLng(36.170488, -115.142809);
+          dmarkers = [];
 
           var map = new google.maps.Map(document.getElementById('vegasMap'), {
           center: lasVegas,

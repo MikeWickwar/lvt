@@ -13,21 +13,6 @@ app.controller('MainController', ['$scope','$http','$q', '$state', 'mapService',
         $state.transitionTo("dashboard");
       }
 
-    var initCount = 0;
-
-    $("#btnMapToggler").on("click", function(){
-        console.log("btn map toggler has been clicked");
-        $("#stripMapDiv").slideToggle();
-        $("#vegasMapDiv").slideToggle();
-
-        if (initCount === 0) {
-            mapService.initStripMap()
-            initCount++
-        }
-
-    })
-
-
     $scope.init = function(){
       console.log("shhhitt not it");
     }

@@ -1,4 +1,4 @@
-console.log("Maps js has been loaded, this is where all the data is currently living");
+console.log("Maps js has been loaded");
 
 /* Data points defined as an array of LatLng objects */
 var heatmapDataStrip = [
@@ -13,15 +13,19 @@ var heatmapDataStrip = [
   //tthe mirage
   {location: new google.maps.LatLng(36.1211957, -115.1740735), weight: 12222},
   //piazzo
-  {location: new google.maps.LatLng(36.1239675, -115.167916), weight: 12222},
+  {location: new google.maps.LatLng(36.1239675, -115.167916), weight: 1222},
   //Vinitian
   {location: new google.maps.LatLng(36.121174, -115.1696526), weight: 12222},
-  //downtown grand
-  {location: new google.maps.LatLng(36.1720691,-115.1411417), weight: 12222},
-  //gold spike
-  {location: new google.maps.LatLng(36.1711121,-115.140793), weight: 12222},
-  //el cortez
-  {location: new google.maps.LatLng(36.1688819,-115.1391032), weight: 122222}
+  //Ceasers Palace
+  {location: new google.maps.LatLng(36.1720691, -115.1411417), weight: 1222},
+  //flamingo
+  {location: new google.maps.LatLng(36.1162217, -115.1718162), weight: 12222},
+  //Bally's
+  {location: new google.maps.LatLng(36.114029, -115.171323), weight: 12222},
+  //bellagio
+  {location: new google.maps.LatLng(36.1114633, -115.175486), weight: 1222},
+  //Monte Carlo
+  {location: new google.maps.LatLng(36.104598, -115.1787748), weight: 122222}
 ];
 
 var dealLocationsStrip = [
@@ -74,16 +78,28 @@ var dealLocationsStrip = [
         long : -115.1745003
     },
     {
-        casino : 'Gold Spike',
-        desc : 'Spike your Gold!',
-        lat : 36.1711121,
-        long : -115.140793
+        casino : 'Flamingo',
+        desc : 'super dope flamingos!!',
+        lat : 36.1162563,
+        long : -115.1716874
     },
     {
-        casino : 'El Cortez',
-        desc : 'Go to the back nock 3 times and kick the door. password is "boobs". you\'re welcome',
-        lat : 36.1688819,
-        long : -115.1391032
+        casino : 'Bally\'s',
+        desc : 'Fancy Shit! Good Waffles',
+        lat : 36.114029,
+        long : -115.171323
+    },
+    {
+        casino : 'bellagio',
+        desc : 'Fancy Shit! Good Waffles!',
+        lat : 36.1114633,
+        long : -115.175486
+    },
+    {
+        casino : 'Monte Carol',
+        desc : 'The full Monte!!',
+        lat : 36.104598,
+        long : -115.1787748
     }
 ];
 
