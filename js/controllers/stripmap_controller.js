@@ -20,9 +20,9 @@ app.controller('StripMapCtrl', ['$scope', 'mapService', function ($scope, mapSer
       e.preventDefault()
       $("#stripMapDiv").hide();
       $("#vegasMapDiv").hide();
-      $("#hotelPanelWrapper").slideToggle();
-      $("btnMapToggler").text("Back to the Maps")
-
+      $("#hotelPanelWrapper").toggle();
+      $scope.$parent.mapName = "The Heat(maps)!"
+      // $scope.$apply();
     }
 
 

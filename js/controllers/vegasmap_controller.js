@@ -22,12 +22,13 @@ app.controller('VegasMapCtrl', ['$scope', 'mapService', function ($scope, mapSer
     e.preventDefault()
     $("#stripMapDiv").hide();
     $("#vegasMapDiv").hide();
-    $("#hotelPanelWrapper").slideToggle();
-    $("btnMapToggler").text("Back to the Maps")
+    $("#hotelPanelWrapper").toggle();
+    $scope.$parent.mapName = "The Heat(maps)!"
+
 
   }
 
-  console.log($scope.markers, " testy scoopey googley mapey");
+  console.log($scope.$parent, "parentScope");
 
 
 }]);

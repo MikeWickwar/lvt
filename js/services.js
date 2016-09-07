@@ -5,7 +5,7 @@ app.factory('mapService', function($http) {
     var promise;
     var jsondata = {
         initStripMap: function() {
-          console.log('map service init strip map fired: starting with these strip markers', stripmarkers);
+          console.log('map service init strip map fired: strip makers length has been resset');
           stripmarkers.length = 0;
 
           $("html").css('background-image', 'url(https://www.excalibur.com/content/dam/MGM/excalibur/casino/poker/excalibur-casino-poker-chips.tif)')

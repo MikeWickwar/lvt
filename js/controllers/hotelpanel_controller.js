@@ -1,7 +1,7 @@
 var initCount = 0;
 
 app.controller('hotelMapsPanelCtrl', ['$scope', 'mapService', function ($scope, mapService) {
-  $scope.mapName = "The Strip Map"
+  $scope.mapName = "The Strip Map";
   $("#hotelPanelWrapper").hide();
   mapService.initStripMap()
 
@@ -10,23 +10,46 @@ app.controller('hotelMapsPanelCtrl', ['$scope', 'mapService', function ($scope, 
 
   $("#btnMapToggler").on("click", function(){
       console.log("btn map toggler has been clicked");
-      $("#vegasMapDiv").slideToggle();
-      $("#stripMapDiv").slideToggle();
+
+      $("#hotelPanelWrapper").hide();
+
+      setMap();
+      $scope.$apply();
 
       if (initCount === 0) {
         console.log("init strip map only");
-          $.when(mapService.initStripMap()).done(function(){
-            if (stripmarkers > 12){
-              stripmap.splice(0, 12)
-              console.log("strip map has been spliced");
-            }
-          })
+        mapService.initStripMap()
           initCount++
       }
       //toggle button name
-      $scope.mapName === "The Strip Map" ? $scope.mapName = "Downtown" : $scope.mapName = "The Strip Map";
+
 
   })
+
+  function setMap() {
+    switch ($scope.mapName) {
+      case "The Strip Map":
+      console.log("strip map case", $scope.mapName);
+        $("#vegasMapDiv").slideToggle();
+        $("#stripMapDiv").slideToggle();
+        return $scope.mapName = "Downtown"
+        break;
+      case "Downtown":
+        console.log("Downtown case", $scope.mapName);
+        $("#vegasMapDiv").slideToggle();
+        $("#stripMapDiv").slideToggle();
+        return $scope.mapName = "The Strip Map"
+        break;
+      case "The Heat(maps)!":
+        console.log("heatmaps case", $scope.mapName);
+        $("#vegasMapDiv").slideToggle();
+        $("#hotelPanelWrapper").hide();
+        return $scope.mapName = "The Strip Map"
+        break;
+      default:
+
+    }
+  }
 
 
 
