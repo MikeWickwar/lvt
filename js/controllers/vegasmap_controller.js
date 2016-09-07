@@ -1,6 +1,11 @@
+var openInfoWindow = function(e, selectedMarker){
+  e.preventDefault()
 
+  google.maps.event.trigger(selectedMarker, 'click')
+}
 //Angular App Module and Controller
 app.controller('VegasMapCtrl', ['$scope', 'mapService', function ($scope, mapService) {
+  console.log('vegas map controller loaded');
   mapService.initVegasMap();
 
   $scope.casinos = dealLocations;

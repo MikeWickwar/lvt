@@ -1,15 +1,18 @@
 
 //Angular App Module and Controller
 app.controller('StripMapCtrl', ['$scope', 'mapService', function ($scope, mapService) {
-    mapService.initStripMap();
+  console.log("strip map control loaded");
+    //if this is not inited before markers is assined markers will be blank
 
     $scope.casinos = dealLocationsStrip;
 
     $scope.markers = stripmarkers;
+    console.log('set strip markers', $scope.markers);
 
-    $scope.openInfoWindow = function(e, selectedMarker){
+
+    $scope.openInfoWindowStrip = function(e, selectedMarker){
       e.preventDefault()
-
+      console.log('inside window info  strip event caused by hover');
       google.maps.event.trigger(selectedMarker, 'click')
     }
 
@@ -23,8 +26,13 @@ app.controller('StripMapCtrl', ['$scope', 'mapService', function ($scope, mapSer
     }
 
 
-    console.log($scope.markers, " testy scoopey googley mapey");
+    console.log($scope, " testy scoopey googley mapey");
 
-
+    $.when(this).done(function(){
+      console.log('hiding map controller loded');
+      if(initCount === 0){
+        $("#stripMapDiv").hide();
+      }
+    })
 
 }]);

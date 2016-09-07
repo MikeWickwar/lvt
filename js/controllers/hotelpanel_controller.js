@@ -1,14 +1,9 @@
 var initCount = 0;
 
 app.controller('hotelMapsPanelCtrl', ['$scope', 'mapService', function ($scope, mapService) {
-
-
   $scope.mapName = "The Strip Map"
-
-
   $("#hotelPanelWrapper").hide();
-  $("#stripMapDiv").toggle();
-
+  mapService.initStripMap()
 
   //listeners
 
@@ -19,7 +14,13 @@ app.controller('hotelMapsPanelCtrl', ['$scope', 'mapService', function ($scope, 
       $("#stripMapDiv").slideToggle();
 
       if (initCount === 0) {
-          mapService.initStripMap()
+        console.log("init strip map only");
+          $.when(mapService.initStripMap()).done(function(){
+            if (stripmarkers > 12){
+              stripmap.splice(0, 12)
+              console.log("strip map has been spliced");
+            }
+          })
           initCount++
       }
       //toggle button name

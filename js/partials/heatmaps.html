@@ -15,9 +15,9 @@
 
 <div ng-controller='StripMapCtrl' id="stripMapDiv">
   <div id="vegasStripMap"></div>
-  <div id="locationList">
+  <div id="locationListStrip">
     <div class="location" ng-repeat="marker in markers | orderBy : 'title'">
-      <a class="locationLink" href="#" ng-mouseover="openInfoWindow($event, marker)" ng-click="hotelPanelInit($event, marker.title)">{{marker.title}}</a>
+      <a class="locationLink" href="#" ng-mouseover="openInfoWindowStrip($event, marker)" ng-click="hotelPanelInit($event, marker.title)">{{marker.title}}</a>
     </div>
   </div>
 </div>
