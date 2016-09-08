@@ -107,3 +107,29 @@ app.factory('mapService', function($http) {
     };
     return jsondata;
 });
+
+app.factory('hotelService', function () {
+  var cart = []
+  var jsondata = {
+    get: function () {
+      return cart
+    },
+    post: function (item) {
+      var cart = []
+
+      cart.forEach(function (thingInCart) {
+        if (item.item === thingInCart.item) {
+          console.log('Iam already in here');
+          item.quantity = parseInt(item.quantity) + parseInt(thingInCart.quantity);
+          item = {item:item.item, quantity:item.quantity, price:item.price};
+          cart.splice(cart.indexOf(thingInCart), 1)
+          console.log(thingInCart);
+        }
+
+      })
+      console.log('returns', item, "shouldbe posted");
+      return cart.push(item)
+    }
+  }
+  return jsondata
+})

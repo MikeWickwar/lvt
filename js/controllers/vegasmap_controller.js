@@ -18,11 +18,12 @@ app.controller('VegasMapCtrl', ['$scope', 'mapService', function ($scope, mapSer
     google.maps.event.trigger(selectedMarker, 'click')
   }
 
-  $scope.hotelPanelInit = function(e){
+  $scope.hotelPanelInit = function(e, markerTitle){
     e.preventDefault()
     $("#stripMapDiv").hide();
     $("#vegasMapDiv").hide();
     $("#hotelPanelWrapper").toggle();
+    $scope.$parent.hotelPost(markerTitle)
     $scope.$parent.mapName = "The Heat(maps)!"
 
 

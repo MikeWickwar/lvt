@@ -21,6 +21,8 @@ app.controller('StripMapCtrl', ['$scope', 'mapService', function ($scope, mapSer
       $("#stripMapDiv").hide();
       $("#vegasMapDiv").hide();
       $("#hotelPanelWrapper").toggle();
+      console.log(" aabou to setting hotelservice");
+      $scope.$parent.hotelPost(markerTitle)
       $scope.$parent.mapName = "The Heat(maps)!"
       // $scope.$apply();
     }
