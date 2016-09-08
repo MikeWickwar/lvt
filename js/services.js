@@ -133,3 +133,47 @@ app.factory('hotelService', function () {
   }
   return jsondata
 })
+
+
+
+/////geolocation
+app.factory('userMapService', function () {
+  var jsondata = {
+    initUserLocationMap : function(){
+  console.log('user map controller fired');
+  // var lasVegas = new google.maps.LatLng(36.170488, -115.142809);
+
+  var map = new google.maps.Map(document.getElementById('UserMap'), {
+            center: {lat: 36.170488, lng: -115.142809},
+            zoom: 13
+          });
+          var infoWindow = new google.maps.InfoWindow({map: map});
+
+          // Try HTML5 geolocation.
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+              var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+              };
+
+              infoWindow.setPosition(pos);
+              infoWindow.setContent('What\'s up Mikey!? This is your Location!');
+              map.setCenter(pos);
+            }, function() {
+              handleLocationError(true, infoWindow, map.getCenter());
+            });
+          } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+          }
+        },
+        handleLocationError : function(browserHasGeolocation, infoWindow, pos) {
+          infoWindow.setPosition(pos);
+          infoWindow.setContent(browserHasGeolocation ?
+                                'Error: The Geolocation service failed.' :
+                                'Error: Your browser doesn\'t support geolocation.');
+                              }
+      }
+      return jsondata;
+});

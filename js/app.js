@@ -15,7 +15,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       })
       .state('stripmap', {
         url: "/stripmap",
-        controller: "StripMapCtrl",
+        controller: "UserMapCtrl",
         templateUrl: "js/partials/stripmap.html",
         authenticate: true
       })
