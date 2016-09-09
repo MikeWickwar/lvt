@@ -20,6 +20,7 @@ app.controller('StripMapCtrl', ['$scope', 'mapService', function ($scope, mapSer
       e.preventDefault()
       $("#stripMapDiv").hide();
       $("#vegasMapDiv").hide();
+      $("#userMapDiv").hide();
       $("#hotelPanelWrapper").toggle();
       console.log(" aabou to setting hotelservice");
       $scope.$parent.hotelPost(markerTitle)

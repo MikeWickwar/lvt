@@ -1,7 +1,9 @@
 var initCount = 0;
+var userinitCount = 0;
 
-app.controller('hotelMapsPanelCtrl', ['$scope', 'mapService', 'hotelService', function ($scope, mapService, hotelService) {
+app.controller('hotelMapsPanelCtrl', ['$scope', 'mapService', 'hotelService', 'userMapService', function ($scope, mapService, hotelService, userMapService) {
   $scope.mapName = "The Strip Map";
+  $scope.userMapName = "Homies Map";
   $scope.hotel = hotelService.get();
   $scope.hotelPost = function(hotel){
     hotelService.post(hotel);
@@ -21,9 +23,11 @@ app.controller('hotelMapsPanelCtrl', ['$scope', 'mapService', 'hotelService', fu
       //toggle button name and map
       setMap();
       $scope.$apply();
+  })
 
-
-
+  $("#btnUserMapToggler").click(function(){
+      setUserMap();
+      $scope.$apply();
   })
 
 //functions
@@ -58,5 +62,34 @@ app.controller('hotelMapsPanelCtrl', ['$scope', 'mapService', 'hotelService', fu
 
     }
   }
+
+  function setUserMap() {
+    switch ($scope.userMapName) {
+      case "Homies Map":
+        console.log("homies map case", $scope.userMapName);
+        $("#vegasMapDiv").hide();
+        $("#stripMapDiv").hide();
+        $("#hotelPanelWrapper").hide();
+        $("#btnMapToggler").hide();
+        $("#userMapDiv").show();
+
+        if (userinitCount === 0) {
+          console.log("init strip map only");
+          userMapService.initUserLocationMap();
+            userinitCount++
+        }
+        return $scope.userMapName = "Back"
+        break;
+      case "Back":
+        console.log("Downtown case", $scope.mapName);
+        $("#userMapDiv").slideToggle();
+        $("#vegasMapDiv").slideToggle();
+        $("#btnMapToggler").show();
+        return $scope.userMapName = "Homies Map"
+        break;
+      }
+
+    }
+
 
 }]);

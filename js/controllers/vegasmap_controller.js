@@ -22,6 +22,7 @@ app.controller('VegasMapCtrl', ['$scope', 'mapService', function ($scope, mapSer
     e.preventDefault()
     $("#stripMapDiv").hide();
     $("#vegasMapDiv").hide();
+    $("#userMapDiv").hide();
     $("#hotelPanelWrapper").toggle();
     $scope.$parent.hotelPost(markerTitle)
     $scope.$parent.mapName = "The Heat(maps)!"

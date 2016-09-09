@@ -5,7 +5,7 @@ app.controller('UserMapCtrl', ['$scope', 'userMapService', function ($scope, use
 
   $scope.title = "User Map"
 
-    userMapService.initUserLocationMap();
+    
 
 
 

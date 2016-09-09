@@ -159,6 +159,7 @@ app.factory('userMapService', function () {
 
               infoWindow.setPosition(pos);
               infoWindow.setContent('What\'s up Mikey!? This is your Location!');
+
               map.setCenter(pos);
             }, function() {
               handleLocationError(true, infoWindow, map.getCenter());
