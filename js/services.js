@@ -8,7 +8,6 @@ app.factory('mapService', function($http) {
           console.log('map service init strip map fired: strip makers length has been resset');
           stripmarkers.length = 0;
 
-          $("html").css('background-image', 'url(https://www.excalibur.com/content/dam/MGM/excalibur/casino/poker/excalibur-casino-poker-chips.tif)')
           var lasVegas = new google.maps.LatLng(36.1146532, -115.1742412);
 
           var map = new google.maps.Map(document.getElementById('vegasStripMap'), {
@@ -58,7 +57,6 @@ app.factory('mapService', function($http) {
         initVegasMap: function(){
           console.log('map service init vegas downtown map fired');
 
-          $("html").css('background-image', 'url(https://www.excalibur.com/content/dam/MGM/excalibur/casino/poker/excalibur-casino-poker-chips.tif)')
           var lasVegas = new google.maps.LatLng(36.170488, -115.142809);
           dmarkers = [];
 
@@ -145,7 +143,7 @@ app.factory('userMapService', function () {
 
   var map = new google.maps.Map(document.getElementById('UserMap'), {
             center: {lat: 36.170488, lng: -115.142809},
-            zoom: 13
+            zoom: 16
           });
           var infoWindow = new google.maps.InfoWindow({map: map});
 

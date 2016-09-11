@@ -12,6 +12,8 @@ app.controller('hotelMapsPanelCtrl', ['$scope', 'mapService', 'hotelService', 'u
   console.log($scope.hotel);
 
   $("#hotelPanelWrapper").hide();
+  $("#userMapDiv").hide();
+
   mapService.initStripMap()
 
 
