@@ -1,6 +1,25 @@
 <div id="editorBody">
   <h1>{{Title}}</h1>
 
-    
+  <div>
+    <form class="newHotelForm">
+      Hotel Name: <input type="text" ng-model="newHotel.name" /><br />
+      Lat: <input type="text" ng-model="newHotel.lat" /><br />
+      Lng: <input type="text" ng-model="newHotel.lng" /><br />
+      Weight: <input type="text" ng-model="newHotel.weight" /><br />
+      Description: <input type="text" ng-model="newHotel.desc" /><br />
+      stars: <label for="newHotel.stars" ng-model="newHotel.stars">
+        1<input type="radio" name="newHotel.stars" value="1">
+        <input type="radio" name="newHotel.stars" value="2">
+        <input type="radio" name="newHotel.stars" value="3">
+        <input type="radio" name="newHotel.stars" value="4">
+        <input type="radio" name="newHotel.stars" value="5">5
+      </label>
+
+      <input type="button" ng-click="reset()" value="Reset" />
+      <input type="submit" ng-click="addHotel(newHotel)" value="Save" />
+    </form>
+  </div>
+
 
 </div>
