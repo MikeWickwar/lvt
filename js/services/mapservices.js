@@ -1,8 +1,15 @@
 var stripmarkers = [];
 var dmarkers = [];
+
 console.log("markers reset", dmarkers, stripmarkers);
-app.factory('mapService', function($http) {
+app.factory('mapService', function($http, hotelService) {
     var promise;
+    var hotels = hotelService.get();
+
+    $(hotels).each(function(hotel){
+      console.log(hotel, "HOTEL");
+    })
+
     var jsondata = {
         initStripMap: function() {
           console.log('map service init strip map fired: strip makers length has been resset');
@@ -26,27 +33,40 @@ app.factory('mapService', function($http) {
           console.log(stripmarkers.length, stripmarkers);
 
           var createMarker = function (info){
+            console.log(info, "INFO create Maker");
+            info.lat = parseFloat(info.lat)
+            info.lng = parseFloat(info.lng)
+            console.log(info.lng, "INFO create Maker");
+
 
             var marker = new google.maps.Marker({
                 map: map,
-                position: new google.maps.LatLng(info.lat, info.long),
-                title: info.casino
+                position: new google.maps.LatLng(info.lat, info.lng),
+                title: info.name
             });
-            marker.content = '<div class="infoWindowContent">' + info.desc + '</div>';
+            var string1 = '<div class="infoWindowContent"> Working' + info.desc + '</div>'
+            var string2 = '<div class="stars">'+ info.stars + '</div>'
+
+            marker.content = string1 + string2;
 
             google.maps.event.addListener(marker, 'click', function(){
                 infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
                 infoWindow.open(map, marker);
             });
 
-              console.log("pushed");
+              console.log("pushed", marker);
               stripmarkers.push(marker);
 
           }
 
-          for (i = 0; i < dealLocationsStrip.length; i++){
-            createMarker(dealLocationsStrip[i]);
-          }
+          hotelService.get().then(function(hotels){
+            hotels = hotels.data.hotels.hotels
+            console.log(hotels, "HOTELS");
+            for (i = 0; i < hotels.length; i++){
+              console.log('create marker', hotels[i]);
+              createMarker(hotels[i]);
+            }
+          })
 
           var openInfoWindow = function(e, selectedMarker){
             e.preventDefault();

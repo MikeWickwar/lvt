@@ -13,7 +13,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         templateUrl: "js/partials/heatmaps.html",
         authenticate: true
       })
-      .state('stripmap', {
+      .state('hotels', {
         url: "/hoteleditor",
         controller: "HotelEditorCtrl",
         templateUrl: "js/partials/hoteleditor.html",

@@ -1,25 +1,51 @@
 <div id="editorBody">
   <h1>{{Title}}</h1>
+  <button type="button" id='btnAddEdit' name="addedit" class="btn btn-primary" ng-click="toddleAddEdit()">
+    {{btnTitle}}
+  </button>
 
-  <div>
-    <form class="newHotelForm">
-      Hotel Name: <input type="text" ng-model="newHotel.name" /><br />
-      Lat: <input type="text" ng-model="newHotel.lat" /><br />
-      Lng: <input type="text" ng-model="newHotel.lng" /><br />
-      Weight: <input type="text" ng-model="newHotel.weight" /><br />
-      Description: <input type="text" ng-model="newHotel.desc" /><br />
-      stars: <label for="newHotel.stars" ng-model="newHotel.stars">
-        1<input type="radio" name="newHotel.stars" value="1">
-        <input type="radio" name="newHotel.stars" value="2">
-        <input type="radio" name="newHotel.stars" value="3">
-        <input type="radio" name="newHotel.stars" value="4">
-        <input type="radio" name="newHotel.stars" value="5">5
-      </label>
+  <form id="newhotelform" ng-hide="newFormToggle">
+    Hotel Name: <input type="text" ng-model="newHotel.name" value="{{newHotel.name}}"/>{{newHotel.name}}<br />
+    Lat: <input type="text" ng-model="newHotel.lat" /><br />
+    Lng: <input type="text" ng-model="newHotel.lng" /><br />
+    Weight: <input type="text" ng-model="newHotel.weight" /><br />
+    Description: <input type="text" ng-model="newHotel.desc" /><br />
+    stars: <label for="newHotel.stars" >
+      1<input type="radio" ng-model="newHotel.stars" value="1">
+      <input type="radio" ng-model="newHotel.stars" value="2">
+      <input type="radio" ng-model="newHotel.stars" value="3">
+      <input type="radio" ng-model="newHotel.stars" value="4">
+      <input type="radio" ng-model="newHotel.stars" value="5">5
+    </label>
 
-      <input type="button" ng-click="reset()" value="Reset" />
-      <input type="submit" ng-click="addHotel(newHotel)" value="Save" />
-    </form>
-  </div>
+    <input type="button" ng-click="reset()" value="Reset" class="btn btn-primary"/>
+    <input type="submit" ng-click="addHotel(newHotel)" value="Save" class="btn btn-primary"/>
+  </form>
+
+  <form id="edithotelform" ng-show="editFormToggle" ng-model-options="{ debounce: 1000 }">
+    Hotel Name: <input type="text" ng-model="editHotel.name" value="{{editHotel.name}}" ng-model-options="{ debounce: 1000 }"/><br />
+    Lat: <input type="text" ng-model="editHotel.lat" /><br />
+    Lng: <input type="text" ng-model="editHotel.lng" /><br />
+    Weight: <input type="text" ng-model="editHotel.weight" /><br />
+    Description: <input type="text" ng-model="editHotel.desc" /><br />
+    stars: <label for="editHotel.stars" >
+      1<input type="radio" ng-model="editHotel.stars" value="1">
+      <input type="radio" ng-model="editHotel.stars" value="2">
+      <input type="radio" ng-model="editHotel.stars" value="3">
+      <input type="radio" ng-model="editHotel.stars" value="4">
+      <input type="radio" ng-model="editHotel.stars" value="5">5
+    </label>
+
+    <input type="button" ng-click="reset()" value="Reset" class="btn btn-primary"/>
+    <input type="submit" ng-click="editHotelPost(editHotel)" value="Save" class="btn btn-primary"/>
+  </form>
+
+<form class="selectEdit" ng-show="editBarToggle">
+  <label for="singleSelect"> Edit Hotel </label>
+    <select name="singleSelect" value="newHotel" ng-model="editHotel" ng-change="editTheHotel()">
+      <option id="{{hotel.id}}" value="{{hotel}}" ng-repeat="hotel in hotelData" >{{hotel.name}}</option>
+    </select>
+</form>
 
 
 </div>

@@ -32,8 +32,8 @@ var dealLocationsStrip = [
     {
         casino : 'The Stratosphere',
         desc : 'This thing is gigantic!',
-        lat : "36.146129",
-        long : "-115.160683"
+        lat : 36.146129,
+        long : -115.160683
     },
     {
         casino : 'Circus Circus',
@@ -66,7 +66,7 @@ var dealLocationsStrip = [
         long : -115.167916
     },
     {
-        casino : 'Venetian',
+        casino : 'Vinitian',
         desc : '$10 match play on all dope ass bets!!',
         lat : 36.121174,
         long : -115.1696526
