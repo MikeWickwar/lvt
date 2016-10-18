@@ -36,7 +36,6 @@ app.factory('mapService', function($http, hotelService) {
             console.log(info, "INFO create Maker");
             info.lat = parseFloat(info.lat)
             info.lng = parseFloat(info.lng)
-            console.log(info.lng, "INFO create Maker");
 
 
             var marker = new google.maps.Marker({
@@ -44,7 +43,7 @@ app.factory('mapService', function($http, hotelService) {
                 position: new google.maps.LatLng(info.lat, info.lng),
                 title: info.name
             });
-            var string1 = '<div class="infoWindowContent"> Working' + info.desc + '</div>'
+            var string1 = '<div class="infoWindowContent"> ' + info.desc + '</div>'
             var string2 = '<div class="stars">'+ info.stars + '</div>'
 
             marker.content = string1 + string2;
@@ -64,7 +63,9 @@ app.factory('mapService', function($http, hotelService) {
             console.log(hotels, "HOTELS");
             for (i = 0; i < hotels.length; i++){
               console.log('create marker', hotels[i]);
-              createMarker(hotels[i]);
+              if (hotels[i].isDowntown == false) {
+                createMarker(hotels[i]);
+              }
             }
           })
 
@@ -78,7 +79,7 @@ app.factory('mapService', function($http, hotelService) {
           console.log('map service init vegas downtown map fired');
 
           var lasVegas = new google.maps.LatLng(36.170488, -115.142809);
-          dmarkers = [];
+          dmarkers.length = 0;
 
           var map = new google.maps.Map(document.getElementById('vegasMap'), {
           center: lasVegas,
@@ -96,26 +97,40 @@ app.factory('mapService', function($http, hotelService) {
 
 
           var createMarker = function (info){
+            info.lat = parseFloat(info.lat)
+            info.lng = parseFloat(info.lng)
+            console.log(info,  "INFO inside create marker");
 
             var marker = new google.maps.Marker({
                 map: map,
-                position: new google.maps.LatLng(info.lat, info.long),
-                title: info.casino
+                position: new google.maps.LatLng(info.lat, info.lng),
+                title: info.name
             });
-            marker.content = '<div class="infoWindowContent">' + info.desc + '</div>';
+
+            var string1 = '<div class="infoWindowContent"> ' + info.desc + '</div>'
+            var string2 = '<div class="stars">'+ info.stars + '</div>'
+
+            marker.content = string1 + string2;
 
             google.maps.event.addListener(marker, 'click', function(){
                 infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
                 infoWindow.open(map, marker);
             });
-
+            console.log(marker.position.lat(),marker.position.lng(), "MakrerBeingPushed");
             dmarkers.push(marker);
 
           }
 
-          for (i = 0; i < dealLocations.length; i++){
-            createMarker(dealLocations[i]);
-          }
+          hotelService.get().then(function(hotels){
+            hotels = hotels.data.hotels.hotels
+            console.log(hotels, "HOTELS");
+            for (i = 0; i < hotels.length; i++){
+              if (hotels[i].isDowntown == true) {
+                console.log('create downtown marker', hotels[i].isDowntown, "is downtown");
+                createMarker(hotels[i]);
+              }
+            }
+          })
 
           var openInfoWindow = function(e, selectedMarker){
             e.preventDefault();

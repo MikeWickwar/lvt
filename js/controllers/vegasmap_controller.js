@@ -6,11 +6,10 @@ var openInfoWindow = function(e, selectedMarker){
 //Angular App Module and Controller
 app.controller('VegasMapCtrl', ['$scope', 'mapService', function ($scope, mapService) {
   console.log('vegas map controller loaded');
-  mapService.initVegasMap();
-
+  mapService.initVegasMap()
   $scope.casinos = dealLocations;
-
   $scope.markers = dmarkers;
+  console.log(dmarkers, $scope.markers, "MARKERS ASSIGNED")
 
   $scope.openInfoWindow = function(e, selectedMarker){
     e.preventDefault()
