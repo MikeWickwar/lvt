@@ -3,13 +3,6 @@ var dmarkers = [];
 
 console.log("markers reset", dmarkers, stripmarkers);
 app.factory('mapService', function($http, hotelService) {
-    var promise;
-    var hotels = hotelService.get();
-
-    $(hotels).each(function(hotel){
-      console.log(hotel, "HOTEL");
-    })
-
     var jsondata = {
         initStripMap: function() {
           console.log('map service init strip map fired: strip makers length has been resset');
@@ -30,10 +23,7 @@ app.factory('mapService', function($http, hotelService) {
           });
           heatmap.setMap(map);
 
-          console.log(stripmarkers.length, stripmarkers);
-
           var createMarker = function (info){
-            console.log(info, "INFO create Maker");
             info.lat = parseFloat(info.lat)
             info.lng = parseFloat(info.lng)
 
@@ -53,16 +43,13 @@ app.factory('mapService', function($http, hotelService) {
                 infoWindow.open(map, marker);
             });
 
-              console.log("pushed", marker);
               stripmarkers.push(marker);
 
           }
 
           hotelService.get().then(function(hotels){
             hotels = hotels.data.hotels.hotels
-            console.log(hotels, "HOTELS");
             for (i = 0; i < hotels.length; i++){
-              console.log('create marker', hotels[i]);
               if (hotels[i].isDowntown == false) {
                 createMarker(hotels[i]);
               }
@@ -76,8 +63,6 @@ app.factory('mapService', function($http, hotelService) {
 
         },
         initVegasMap: function(){
-          console.log('map service init vegas downtown map fired');
-
           var lasVegas = new google.maps.LatLng(36.170488, -115.142809);
           dmarkers.length = 0;
 
@@ -99,7 +84,6 @@ app.factory('mapService', function($http, hotelService) {
           var createMarker = function (info){
             info.lat = parseFloat(info.lat)
             info.lng = parseFloat(info.lng)
-            console.log(info,  "INFO inside create marker");
 
             var marker = new google.maps.Marker({
                 map: map,
@@ -116,17 +100,14 @@ app.factory('mapService', function($http, hotelService) {
                 infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
                 infoWindow.open(map, marker);
             });
-            console.log(marker.position.lat(),marker.position.lng(), "MakrerBeingPushed");
             dmarkers.push(marker);
 
           }
 
           hotelService.get().then(function(hotels){
             hotels = hotels.data.hotels.hotels
-            console.log(hotels, "HOTELS");
             for (i = 0; i < hotels.length; i++){
               if (hotels[i].isDowntown == true) {
-                console.log('create downtown marker', hotels[i].isDowntown, "is downtown");
                 createMarker(hotels[i]);
               }
             }

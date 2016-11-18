@@ -8,9 +8,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
         templateUrl: "js/partials/main_splash.html"
       })
       .state('dashboard', {
-        url: "/home",
-        controller: "hotelMapsPanelCtrl",
-        templateUrl: "js/partials/heatmaps.html",
+        controller: "DashCtrl",
+        templateUrl: "js/partials/Dashboard.html",
         authenticate: true
       })
       .state('hotels', {
