@@ -8,8 +8,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
         templateUrl: "js/partials/main_splash.html"
       })
       .state('dashboard', {
+        url:"/dashboard",
         controller: "DashCtrl",
         templateUrl: "js/partials/Dashboard.html",
+        authenticate: true
+      })
+      .state('maps', {
+        url:"/maps",
+        controller: "hotelMapsPanelCtrl",
+        templateUrl: "js/partials/heatmaps.html",
         authenticate: true
       })
       .state('hotels', {

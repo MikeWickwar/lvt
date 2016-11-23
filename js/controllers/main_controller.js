@@ -1,9 +1,18 @@
 //this needs stripping and customizing for what this app needs, pulled from mean tea
 //any services need to be injected in the controller
+
+//local
+function hideNav() {
+  $("#mainTopHeader").hide();
+}
+
 app.controller('MainController', ['$scope','$http','$q', '$state', 'mapService',
  function ($scope, $http, $q, $state, mapService) {
 
-   console.log('test');
+   console.log('STATE', $state);
+   if ($state.current.name === "index")
+    hideNav();
+
    $scope.user = { user : "",
                    password : ""
                  }
@@ -13,9 +22,7 @@ app.controller('MainController', ['$scope','$http','$q', '$state', 'mapService',
         $state.transitionTo("dashboard");
       }
 
-    $scope.init = function(){
-      console.log("shhhitt not it");
-    }
+
 
 
 

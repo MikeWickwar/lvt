@@ -5,8 +5,8 @@
   <input class="btn btn-danger" id="btnUserMapToggler" type="button" name="showUserMap" value="{{userMapName}}">
 </div>
 
-<div ng-controller="VegasMapCtrl" id="vegasMapDiv">
-  <div id="vegasMap"></div>
+<div ng-controller="VegasMapCtrl" id="vegasMapDiv" >
+  <div id="vegasMap" class='map'></div>
   <div id="locationList">
     <div class="location" ng-repeat="marker in markers | orderBy : 'title'">
       <a class="locationLink" href="#" ng-mouseover="openInfoWindow($event, marker)" ng-click="hotelPanelInit($event, marker)">{{marker.title}}</a>
@@ -15,7 +15,7 @@
 </div>
 
 <div ng-controller='StripMapCtrl' id="stripMapDiv">
-  <div id="vegasStripMap"></div>
+  <div id="vegasStripMap" class='map'></div>
   <div id="locationListStrip">
     <div class="location" ng-repeat="marker in markers | orderBy : 'title'">
       <a class="locationLink" href="#" ng-mouseover="openInfoWindowStrip($event, marker)" ng-click="hotelPanelInit($event, marker)">{{marker.title}}</a>
@@ -24,7 +24,7 @@
 </div>
 
 <div ng-controller="UserMapCtrl" id="userMapDiv">
-  <div id="UserMap">
+  <div id="UserMap" class='map'>
   </div>
   <div id="addPin"></div>
 </div>

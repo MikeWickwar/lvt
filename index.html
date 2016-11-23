@@ -2,35 +2,51 @@
 <html ng-app="LVT">
   <head>
     <meta charset="utf-8">
-    <title>Mikey's Las Vegas Tip Guide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GoVegas.guru</title>
+    <link href="https://fonts.googleapis.com/css?family=Damion" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/index.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/css/index_mobile.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="/css/maps.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="/css/splash.css" media="screen" title="no title" charset="utf-8">
-    <link rel="stylesheet" href="/css/userMap.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/css/UserMap.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="/css/hotelpanel.css" media="screen" title="no title" charset="utf-8">
-    <link rel="stylesheet" href="/css/hoteleditor.css" media="screen" title="no title" charset="utf-8">
 
   </head>
-  <body class="col-lg-10 col-lg-offset-1">
-    <header class="">
+  <body class="">
+    <!-- this header should be put in the main splash at some point
+  for right now it's living here to avoid breaking on the login -->
+    <nav id="mainTopHeader" class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#/dashboard">GoVegas.guru</a>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainGuruNav" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
 
-      <!-- <nav class="navbar navbar-default row">
-        <div class="btnContainer col-lg-1">
-          <span class="icon-bar"><a href="/#/dashboard">Dashboard</a></span>
-        </div>
-        <div class="btnContainer col-lg-1">
-          <span class="icon-bar"><a href="/#/about">About</a></span>
-        </div>
-        <div class="btnContainer col-lg-1">
-          <span class="icon-bar"><a href="/#/signup">signup</a></span>
-        </div>
-      </nav> -->
-    </header>
-    <div ui-view class="view">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="mainGuruNav">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#/maps">Eat<span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="#/maps">Drink<span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="#/maps">Play<span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="#/maps">Stay<span class="sr-only">(current)</span></a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <div ui-view class="view col-lg-10 col-lg-offset-1">
 
     </div>
 
+    <script src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>
     <script type="text/javascript" src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <script type="text/javascript" src="https://code.angularjs.org/1.4.3/angular-route.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
@@ -40,15 +56,15 @@
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdQiaiVVR5vDhgydtheBr59dWotQ-EQMs&libraries=visualization" > </script>
     <script src="https://use.fontawesome.com/fc089d461f.js"></script>
     <script type="text/javascript" src="./js/app.js"></script>
-    <script type="text/javascript" src="./js/services/hotelservices.js"></script>
-    <script type="text/javascript" src="./js/services/mapservices.js"></script>
+    <script type="text/javascript" src="js/services/hotelservices.js"></script>
+    <script type="text/javascript" src="js/services/mapservices.js"></script>
     <script type="text/javascript" src="./js/controllers/main_controller.js"></script>
+    <script type="text/javascript" src="./js/controllers/dash_controller.js"></script>
     <script type="text/javascript" src="./js/controllers/hotelpanel_controller.js"></script>
     <script type="text/javascript" src="./js/controllers/vegasmap_controller.js"></script>
     <script type="text/javascript" src="./js/controllers/stripmap_controller.js"></script>
     <script type="text/javascript" src="./js/controllers/usermap_controller.js"></script>
     <script type="text/javascript" src="./js/controllers/chat_controller.js"></script>
-    <script type="text/javascript" src="./js/controllers/hoteleditor_controller.js"></script>
     <script type="text/javascript" src="./js/maps/maps.js"></script>
 
   </body>
