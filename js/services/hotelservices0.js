@@ -1,18 +1,17 @@
 
 app.factory('hotelService', function ($http) {
-  var getHotels = $http.get( __env.apiUrl + 'hotels')
-  var hotels =  __env.apiUrl + 'hotels'
+  var hotels = $http.get( __env.apiUrl + 'hotels')
 
   var jsondata = {
     get: function () {
       console.log('getting hotels');
-      return getHotels
+      return hotels
     },
     post: function (postinghotel) {
       console.log(postinghotel, "here is the data about to be posted");
       //this will obvs have to change when deployed to the deployed url
       var request = $.ajax({
-        url: hotels,
+        url: "http://localhost:3030/hotels",
         method: "POST",
         data: postinghotel,
         dataType: "html"
@@ -34,7 +33,7 @@ app.factory('hotelService', function ($http) {
       console.log(hotel, "look for has keyshot ihit")
 
       var request = $.ajax({
-        url: hotels + hotel.id,
+        url: "http://localhost:3030/hotels/" + hotel.id,
         method: "POST",
         data: hotel,
         dataType: "html"

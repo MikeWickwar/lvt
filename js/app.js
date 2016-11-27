@@ -1,4 +1,15 @@
+
+var env = {};
+
+// Import variables if present (from env.js)
+if(window){
+  Object.assign(env, window.__env);
+}
+
+// Register environment in AngularJS as constant
 var app = angular.module('LVT', ['ui.router', 'ngAnimate']);
+
+app.constant('__env', env);
 
 app.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
