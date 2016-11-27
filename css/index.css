@@ -13,9 +13,11 @@ body{
   justify-content: center;
   background-color: rgba(255,255,255, 0);
 }
-.view{
+#view{
   height: 100vh;
   width: 100vw;
+  position: relative;
+  z-index: -1;
 }
 .mw-header{
   display: flex;
