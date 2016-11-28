@@ -1,1 +1,11 @@
 //settings
+$defaultFont: 'Damion', cursive;
+
+$defaultColor: white;
+
+.centerme{
+  text-align: center;
+}
+.defColor{
+  columns:$defaultColor;
+}

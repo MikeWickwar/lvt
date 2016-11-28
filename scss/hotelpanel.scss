@@ -1,16 +1,17 @@
 .hotelPanel,
 .hotelPanelWrapper {
   height: 70vh;
-  width: 100%; }
-
-.hotelPanelWrapper {
+  width: 100%;
+}
+.hotelPanelWrapper{
   background-color: rgba(0, 0, 0, 0.5);
   position: relative;
-  z-index: -1; }
-
+  z-index: -1;
+}
 .hotelPanel,
-.hotelPanel * {
+.hotelPanel *{
   position: relative;
   z-index: 5;
   opacity: 1;
-  color: white; }
+  color: white;
+}

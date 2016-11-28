@@ -4,6 +4,7 @@
 //local
 function hideNav() {
   $("#mainTopHeader").hide();
+  $("#mainBottomHeader").hide();
 }
 
 app.controller('MainController', ['$scope','$http','$q', '$state', 'mapService',
