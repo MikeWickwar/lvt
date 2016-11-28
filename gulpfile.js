@@ -32,7 +32,7 @@ browserSync.init({
 });
 });
 
-gulp.task('watch', ['browserSync', 'sass'], function (){
-  gulp.watch('./scss/**/*.scss', ['sass']);
+gulp.task('kickit', ['browserSync', 'sass'], function (){
+  gulp.watch('./scss/*.scss', ['sass']);
   // Other watchers
 });

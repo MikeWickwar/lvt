@@ -14,17 +14,18 @@
     <link rel="stylesheet" href="/css/userMap.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="/css/hotelpanel.css" media="screen" title="no title" charset="utf-8">
 
+    <script src="https://use.fontawesome.com/fc089d461f.js"></script>
     <script type="text/javascript" src="./env.js"></script>
 
   </head>
   <body class="">
     <!-- this header should be put in the main splash at some point
   for right now it's living here to avoid breaking on the login -->
-    <nav id="mainTopHeader" class="navbar navbar-inverse">
+    <nav id="mainTopHeader" class="navbar-default navbar-inverse">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <a class="navbar-brand" href="#/dashboard">GoVegas.guru</a>
+          <a class="navbar-brand defColor" href="#/dashboard">GoVegas.guru</a>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainGuruNav" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -36,18 +37,32 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-static-top " id="mainGuruNav">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#/maps">Eat<span class="sr-only">(current)</span></a></li>
-            <li class="active"><a href="#/maps">Drink<span class="sr-only">(current)</span></a></li>
-            <li class="active"><a href="#/maps">Play<span class="sr-only">(current)</span></a></li>
-            <li class="active"><a href="#/maps">Stay<span class="sr-only">(current)</span></a></li>
+            <li class="active"><a class="centerme" href="#/maps">Eat<span class="sr-only">(current)</span></a></li>
+            <li class="active"><a class="centerme" href="#/maps">Drink<span class="sr-only">(current)</span></a></li>
+            <li class="active"><a class="centerme" href="#/maps">Play<span class="sr-only">(current)</span></a></li>
+            <li class="active"><a class="centerme" href="#/maps">Stay<span class="sr-only">(current)</span></a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
 
-    <div ui-view class="view col-lg-10 col-lg-offset-1" id="view">
+    <div ui-view class="" id="view">
 
     </div>
+
+    <nav id="mainBottomHeader" class="navbar-default navbar-inverse">
+      <div class="container-fluid">
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="navbar-static-bottom " id="mainGuruNav">
+          <ul class="nav navbar-nav">
+            <li><a href="#/maps"><i class="fa fa-rebel fa-2x"></i></a></li>
+            <li><a href="#/maps"><i class="fa fa-heart fa-2x"></i></a></li>
+            <li><a href="#/maps"><i class="fa fa-map-marker fa-2x"></i></a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
 
     <script src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>
     <script type="text/javascript" src="https://code.angularjs.org/1.4.3/angular.js"></script>
@@ -57,7 +72,6 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdQiaiVVR5vDhgydtheBr59dWotQ-EQMs&libraries=visualization" > </script>
-    <script src="https://use.fontawesome.com/fc089d461f.js"></script>
     <script type="text/javascript" src="./js/app.js"></script>
     <script type="text/javascript" src="js/services/hotelservices.js"></script>
     <script type="text/javascript" src="js/services/mapservices.js"></script>
