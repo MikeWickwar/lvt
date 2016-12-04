@@ -11,15 +11,16 @@
   overflow-y: auto; }
 
 #mainTopHeader {
-  height: 75px;
+  position: fixed;
+  height: 50px;
   top: 0; }
 
 #view {
-  top: 75px;
-  bottom: 50px; }
+  padding-top: 75px;
+  padding-bottom: 50px; }
 
 #mainBottomFooter {
+  position: fixed;
   height: 50px;
-  position: absolute;
   bottom: 0;
   z-index: 30; }

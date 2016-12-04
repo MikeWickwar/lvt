@@ -11,16 +11,17 @@
   overflow-y: auto; }
 
 #mainTopHeader {
-  height: 75px;
+  position: fixed;
+  height: 50px;
   top: 0; }
 
 #view {
-  top: 75px;
-  bottom: 50px; }
+  padding-top: 75px;
+  padding-bottom: 50px; }
 
 #mainBottomFooter {
+  position: fixed;
   height: 50px;
-  position: absolute;
   bottom: 0;
   z-index: 30; }
 
@@ -31,19 +32,20 @@ html * {
 html {
   background-image: url(https://www.excalibur.com/content/dam/MGM/excalibur/casino/poker/excalibur-casino-poker-chips.tif);
   width: 100%;
-  overflow-x: hidden;
-  overflow-y: hidden; }
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: auto; }
 
 body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: rgba(255, 255, 255, 0);
-  overflow-x: hidden;
-  overflow-y: auto; }
+  background-color: rgba(255, 255, 255, 0); }
 
 #view {
-  height: 100%; }
+  height: 100%;
+  width: 100%;
+  overflow-y: auto; }
 
 #appLogo {
   color: white; }
@@ -57,17 +59,22 @@ div.gm-style-iw * {
 
 #mainTopHeader div.container-fluid {
   padding-left: 0;
-  padding-right: 0; }
+  padding-right: 0;
+  width: 100%; }
 
+#mainTopHeader,
 #mainBottomFooter {
-  width: 100%;
-  height: 12%; }
+  width: 100%; }
 
 #mainBottomFooter ul {
   display: flex;
   justify-content: center; }
 
+#mainBottomFooter ul a {
+  position: relative;
+  bottom: 10px; }
+
 #Test {
   background-color: red;
-  height: 100%;
+  height: 700px;
   width: 100%; }
