@@ -9,21 +9,21 @@ html{
   height: 100%;
   width: 100%;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: hidden;
 }
 body{
   height: 100%;
-  width: 100%;
   display:flex;
   flex-direction: column;
   background-color: rgba(255,255,255, 0);
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: hidden;
+}
+#view{
+  height: 100%;
 }
 #appLogo{
   color: white;
-}
-#view{
 }
 div.gm-style-iw *{
   color: black;
@@ -37,13 +37,13 @@ div.gm-style-iw *{
   padding-left: 0;
   padding-right: 0;
 }
-#mainBottomHeader{
+#mainBottomFooter{
   width: 100%;
   height: 10%;
   position: relative;
   bottom: 0;
 }
-#mainBottomHeader ul{
+#mainBottomFooter ul{
   display: flex;
   justify-content: center;
 }

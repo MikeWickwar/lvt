@@ -18,7 +18,7 @@
   top: 75px;
   bottom: 50px; }
 
-#mainBottomHeader {
+#mainBottomFooter {
   height: 50px;
   bottom: 0; }
 
@@ -28,26 +28,24 @@ html * {
 
 html {
   background-image: url(https://www.excalibur.com/content/dam/MGM/excalibur/casino/poker/excalibur-casino-poker-chips.tif);
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   overflow-x: hidden;
-  overflow-y: auto; }
+  overflow-y: hidden; }
 
 body {
   height: 100%;
-  width: 100%;
   display: flex;
   flex-direction: column;
   background-color: rgba(255, 255, 255, 0);
   overflow-x: hidden;
-  overflow-y: auto; }
+  overflow-y: hidden; }
+
+#view {
+  height: 100%; }
 
 #appLogo {
   color: white; }
-
-#view {
-  height: 100%;
-  width: 100%; }
 
 div.gm-style-iw * {
   color: black; }
@@ -60,12 +58,12 @@ div.gm-style-iw * {
   padding-left: 0;
   padding-right: 0; }
 
-#mainBottomHeader {
+#mainBottomFooter {
   width: 100%;
   height: 10%;
   position: relative;
   bottom: 0; }
 
-#mainBottomHeader ul {
+#mainBottomFooter ul {
   display: flex;
   justify-content: center; }
