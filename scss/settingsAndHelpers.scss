@@ -8,6 +8,14 @@ $defaultColor: white;
 .scroll-y { overflow-y: auto; }
 
 //these are the settings for the general overflow rules
-#mainTopHeader{ height: 75px; top: 0; }
-#view{ top: 75px; bottom: 50px; }
-#mainBottomFooter{ height: 50px; bottom: 0; }
+#mainTopHeader{ height: 75px;
+   top: 0;
+  }
+#view{ top: 75px;
+   bottom: 50px;
+  }
+#mainBottomFooter{ height: 50px;
+   position: absolute;
+   bottom: 0;
+   z-index: 30;
+ }

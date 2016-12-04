@@ -20,4 +20,6 @@
 
 #mainBottomFooter {
   height: 50px;
-  bottom: 0; }
+  position: absolute;
+  bottom: 0;
+  z-index: 30; }

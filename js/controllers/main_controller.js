@@ -4,27 +4,28 @@
 //local
 function hideNav() {
   $("#mainTopHeader").hide();
-  $("#mainBottomHeader").hide();
+  $("#mainBottomFooter").hide();
 }
+
+
 
 app.controller('MainController', ['$scope','$http','$q', '$state', 'mapService',
  function ($scope, $http, $q, $state, mapService) {
 
-   console.log('STATE', $state);
-   if ($state.current.name === "index")
-    hideNav();
+    console.log('STATE', $state);
+    if ($state.current.name === "index")
+     hideNav();
 
-   $scope.user = { user : "",
+    $scope.user = { user : "",
                    password : ""
-                 }
-   $scope.onUserLogin = function(e){
-      console.log( "userlogin function hit");
-        console.log(e);
-        $state.transitionTo("dashboard");
-      }
+                  }
+    $scope.onUserLogin = function(e){
+       console.log( "userlogin function hit");
+         console.log(e);
+         $state.transitionTo("dashboard");
+       }
 
-
-
-
+     $("html").height($(document).height());
+     console.log('resized for screen');
 
   }])

@@ -1,6 +1,6 @@
 function showNav() {
   $("#mainTopHeader").show();
-  $("#mainBottomHeader").show();
+  $("#mainBottomFooter").show();
 }
 
 app.controller('DashCtrl', ['$scope','$http','$q', '$state', 'mapService',
