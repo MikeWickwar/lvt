@@ -2,7 +2,25 @@
   text-align: center; }
 
 .defColor {
-  columns: white; }
+  columns: white !important; }
+
+.scroll-x {
+  overflow-x: auto; }
+
+.scroll-y {
+  overflow-y: auto; }
+
+#mainTopHeader {
+  height: 75px;
+  top: 0; }
+
+#view {
+  top: 75px;
+  bottom: 50px; }
+
+#mainBottomHeader {
+  height: 50px;
+  bottom: 0; }
 
 html * {
   font-family: "Damion", cursive;
@@ -24,6 +42,9 @@ body {
   overflow-x: hidden;
   overflow-y: auto; }
 
+#appLogo {
+  color: white; }
+
 #view {
   height: 100%;
   width: 100%; }
@@ -41,6 +62,7 @@ div.gm-style-iw * {
 
 #mainBottomHeader {
   width: 100%;
+  height: 10%;
   position: relative;
   bottom: 0; }
 
