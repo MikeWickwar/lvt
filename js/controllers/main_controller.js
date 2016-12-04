@@ -25,7 +25,5 @@ app.controller('MainController', ['$scope','$http','$q', '$state', 'mapService',
          $state.transitionTo("dashboard");
        }
 
-     $("html").height($(document).height());
-     console.log('resized for screen');
 
   }])
