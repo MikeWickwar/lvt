@@ -6,8 +6,8 @@ html *{
 }
 html{
   background-image: url(https://www.excalibur.com/content/dam/MGM/excalibur/casino/poker/excalibur-casino-poker-chips.tif);
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -24,8 +24,6 @@ body{
   color: white;
 }
 #view{
-  height: 100%;
-  width: 100%;
 }
 div.gm-style-iw *{
   color: black;
