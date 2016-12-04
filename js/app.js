@@ -36,6 +36,36 @@ app.config(function($stateProvider, $urlRouterProvider) {
         templateUrl: "js/partials/hoteleditor.html",
         authenticate: true
       })
+      .state('guru', {
+        url: "/guru",
+        controller: "GuruCtrl",
+        templateUrl: "js/partials/guru.html",
+        authenticate: true
+      })
+      .state('favs', {
+        url: "/favs",
+        controller: "FavsCtrl",
+        templateUrl: "js/partials/favs.html",
+        authenticate: true
+      })
+      .state('eats', {
+        url: "/eats",
+        controller: "EatsCtrl",
+        templateUrl: "js/partials/eats.html",
+        authenticate: true
+      })
+      .state('drink', {
+        url: "/drink",
+        controller: "DrinkCtrl",
+        templateUrl: "js/partials/drink.html",
+        authenticate: true
+      })
+      .state('play', {
+        url: "/play",
+        controller: "PlayCtrl",
+        templateUrl: "js/partials/play.html",
+        authenticate: true
+      })
 
       $urlRouterProvider.otherwise("/")
       //place an otherwise in this for a 404 sitautation
