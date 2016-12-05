@@ -1,4 +1,5 @@
-//AIzaSyBnIthxzYC1OeHtVmyMxqLjVpVxmpimG8s
+//api key living in stupid __env folder
+
 /////geolocation
 app.factory('geoCodingService', function () {
   var api = "https://maps.googleapis.com/maps/api/geocode/json?address="
