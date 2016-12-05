@@ -3,8 +3,8 @@ function showNav() {
   $("#mainBottomFooter").show();
 }
 
-app.controller('DashCtrl', ['$scope','$http','$q', '$state', 'mapService',
- function ($scope, $http, $q, $state, mapService) {
+app.controller('DashCtrl', ['$scope','$http','$q', '$state', 'mapService', 'geoCodingService',
+ function ($scope, $http, $q, $state, mapService, geoCodingService) {
 
    if ($state.current.name === "dashboard")
     showNav();
@@ -12,6 +12,9 @@ app.controller('DashCtrl', ['$scope','$http','$q', '$state', 'mapService',
   $scope.title = "Dashboard"
 
   $scope.guest = true;
+
+  var test = geoCodingService.getLatLng();
+  console.log(test, "here are the lt lng")
 
 
 //testing gauge action here
