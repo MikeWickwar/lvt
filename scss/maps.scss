@@ -1,3 +1,5 @@
+@import 'settingsAndHelpers';
+
 #view{
   display: flex;
   flex-direction: column;
@@ -9,8 +11,8 @@
 }
 #vegasStripMap,
 #vegasMap{
-  height: 40vh;
-  width: 80%;
+  height: $mapHeight;
+  width: $mapWidth;
 }
 #locationListStrip,
 #locationList{

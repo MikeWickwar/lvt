@@ -1,3 +1,30 @@
+.centerme {
+  text-align: center; }
+
+.defColor {
+  columns: white !important; }
+
+.scroll-x {
+  overflow-x: auto; }
+
+.scroll-y {
+  overflow-y: auto; }
+
+#mainTopHeader {
+  position: fixed;
+  height: 50px;
+  top: 0; }
+
+#view {
+  padding-top: 75px;
+  padding-bottom: 50px; }
+
+#mainBottomFooter {
+  position: fixed;
+  height: 50px;
+  bottom: 0;
+  z-index: 30; }
+
 #view {
   display: flex;
   flex-direction: column;
@@ -9,8 +36,8 @@
 
 #vegasStripMap,
 #vegasMap {
-  height: 40vh;
-  width: 80%; }
+  height: 400px;
+  width: 400px; }
 
 #locationListStrip,
 #locationList {

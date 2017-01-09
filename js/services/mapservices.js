@@ -68,17 +68,22 @@ app.factory('mapService', function($http, hotelService) {
 
           var map = new google.maps.Map(document.getElementById('vegasMap'), {
           center: lasVegas,
-          zoom: 16
+          zoom: 16,
+          mapTypeControl: false,
+          panControl: false,
+          zoomControl: false
           });
+         var places = new google.maps.places.PlacesService(map);
 
+         var infoWindow = new google.maps.InfoWindow({
+           content: document.getElementById('info-content')
+         });
 
-          var infoWindow = new google.maps.InfoWindow();
-
-          var heatmap = new google.maps.visualization.HeatmapLayer({
-          data: heatmapData,
-          radius: 20
-          });
-          heatmap.setMap(map);
+          // var heatmap = new google.maps.visualization.HeatmapLayer({
+          // data: heatmapData,
+          // radius: 20
+          // });
+          // heatmap.setMap(map);
 
 
           var createMarker = function (info){
@@ -117,6 +122,37 @@ app.factory('mapService', function($http, hotelService) {
             e.preventDefault();
             google.maps.event.trigger(selectedMarker, 'click');
           }
+          // Search for hotels in the selected city, within the viewport of the map.
+          search = function() {
+           var search = {
+             bounds: map.getBounds(),
+             types: ['lodging']
+             };
+          }
+          places.nearbySearch(search, function(results, status) {
+             if (status === google.maps.places.PlacesServiceStatus.OK) {
+               clearResults();
+               clearMarkers();
+               // Create a marker for each hotel found, and
+               // assign a letter of the alphabetic to each marker icon.
+               for (var i = 0; i < results.length; i++) {
+                 var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
+                 var markerIcon = MARKER_PATH + markerLetter + '.png';
+                 // Use marker animation to drop the icons incrementally on the map.
+                 markers[i] = new google.maps.Marker({
+                   position: results[i].geometry.location,
+                   animation: google.maps.Animation.DROP,
+                   icon: markerIcon
+                 });
+                 // If the user clicks a hotel marker, show the details of that hotel
+                 // in an info window.
+                 markers[i].placeResult = results[i];
+                 google.maps.event.addListener(markers[i], 'click', showInfoWindow);
+                 setTimeout(dropMarker(i), i * 100);
+                 addResult(results[i], i);
+               }
+             }
+           });
         }
     };
     return jsondata;
