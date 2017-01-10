@@ -9,11 +9,11 @@
 
 <div ng-controller="VegasMapCtrl" id="vegasMapDiv" >
   <div id="vegasMap" class='map'></div>
-  <!-- <div id="locationList">
+  <div id="locationList">
     <div class="location" ng-repeat="marker in markers | orderBy : 'title'">
       <a class="locationLink" href="#" ng-mouseover="openInfoWindow($event, marker)" ng-click="hotelPanelInit($event, marker)">{{marker.title}}</a>
     </div>
-  </div> -->
+  </div>
   <label for="repeatSelectVegas"> Hotels: </label>
     <select name="repeatSelectVegas" id="repeatSelectVegas">
       <option ng-repeat="marker in markers | orderBy : 'title'" value="{{marker.id}}" ng-model="VegasMapCtrl" ng-change="openInfoWindow($event, marker)">{{marker.title}}</option>
