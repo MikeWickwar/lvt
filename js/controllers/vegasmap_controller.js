@@ -6,9 +6,13 @@ var openInfoWindow = function(e, selectedMarker){
 //Angular App Module and Controller
 app.controller('VegasMapCtrl', ['$scope', 'mapService', function ($scope, mapService) {
   console.log('vegas map controller loaded');
-  mapService.initVegasMap()
-  $scope.casinos = dealLocations;
-  $scope.markers = dmarkers;
+
+  //only will asign markers after init map is done
+  $.when(mapService.initVegasMap()).done(function() {
+    $scope.casinos = dealLocations;
+    $scope.markers = dmarkers;
+
+  })
   console.log(dmarkers, $scope.markers, "MARKERS ASSIGNED")
 
   $scope.openInfoWindow = function(e, selectedMarker){

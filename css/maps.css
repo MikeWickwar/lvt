@@ -34,6 +34,8 @@
 #btnMapToggler {
   height: 30px; }
 
+#stripMapDiv,
+#vegasMapDiv,
 #vegasStripMap,
 #vegasMap {
   height: 400px;

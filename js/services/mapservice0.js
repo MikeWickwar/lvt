@@ -60,6 +60,7 @@ app.factory('mapService', function($http, hotelService) {
                animation: google.maps.Animation.DROP,
                icon: markerIcon
              });
+
              // If the user clicks a hotel marker, show the details of that hotel
              // in an info window.
              dmarkers[i].placeResult = results[i];
@@ -203,25 +204,34 @@ app.factory('mapService', function($http, hotelService) {
              var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
              var markerIcon = MARKER_PATH + markerLetter + '.png';
              // Use marker animation to drop the icons incrementally on the map.
-             dmarkers[i] = new google.maps.Marker({
+             stripmarkers[i] = new google.maps.Marker({
                position: results[i].geometry.location,
                animation: google.maps.Animation.DROP,
                icon: markerIcon
              });
              // If the user clicks a hotel marker, show the details of that hotel
              // in an info window.
-             dmarkers[i].placeResult = results[i];
-             google.maps.event.addListener(dmarkers[i], 'click', showInfoWindow);
-             setTimeout(dropMarker(i), i * 100);
+             var added=false;
+             $.map(stripmarkers, function(elementOfArray, indexInArray) {
+              if (elementOfArray == results[i].place_id) {
+                alert("double prevented")
+                added = true;
+              }
+            })
+             if (!added) {
+               stripmarkers[i].placeResult = results[i];
+               google.maps.event.addListener(stripmarkers[i], 'click', showInfoWindow);
+               setTimeout(dropMarker(i), i * 100);
+             }
            }
          }
        });
      }
 
      function clearMarkers() {
-        for (var i = 0; i < dmarkers.length; i++) {
-          if (dmarkers[i]) {
-            dmarkers[i].setMap(null);
+        for (var i = 0; i < stripmarkers.length; i++) {
+          if (stripmarkers[i]) {
+            stripmarkers[i].setMap(null);
           }
         }
         dmarkers = [];
@@ -230,20 +240,20 @@ app.factory('mapService', function($http, hotelService) {
 
       function dropMarker(i) {
             return function() {
-            dmarkers[i].setMap(map);
+            stripmarkers[i].setMap(map);
           };
         }
 
         // Get the place details for a hotel. Show the information in an info window,
         // anchored on the marker for the hotel that the user selected.
         function showInfoWindow() {
-          var dmarker = this;
-          places.getDetails({placeId: dmarker.placeResult.place_id},
+          var stripmarkers = this;
+          places.getDetails({placeId: stripmarkers.placeResult.place_id},
               function(place, status) {
                 if (status !== google.maps.places.PlacesServiceStatus.OK) {
                   return;
                 }
-                infoWindow.open(map, dmarker);
+                infoWindow.open(map, stripmarkers);
                 buildIWContent(place);
               });
         }

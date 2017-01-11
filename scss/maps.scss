@@ -1,5 +1,4 @@
 @import 'settingsAndHelpers';
-
 #view{
   display: flex;
   flex-direction: column;
@@ -9,6 +8,8 @@
 #btnMapToggler{
   height: 30px;
 }
+#stripMapDiv,
+#vegasMapDiv,
 #vegasStripMap,
 #vegasMap{
   height: $mapHeight;
@@ -23,6 +24,7 @@
   justify-content: center;
   margin-top:15px;
 }
+
 .locationLink{
   font-size: 16px;
   color: white;
