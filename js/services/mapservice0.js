@@ -1,9 +1,11 @@
 var stripmarkers = [];
 var dmarkers = [];
-
+var places = [];
+var dfdVegas = $.Deferred();
 console.log("markers reset", dmarkers, stripmarkers);
 app.factory('mapService', function($http, hotelService) {
     var jsondata = {
+
         initStripMap: function() {
           console.log('map service init strip map fired: strip makers length has been resset');
 
@@ -189,7 +191,7 @@ app.factory('mapService', function($http, hotelService) {
          location: lasVegas,
          bounds: map.getBounds(),
          radius: '1500',
-         types: ['lodging', 'casino']
+         types: ['lodging']
        }
   console.log(search  , "seach mo", map);
       places = new google.maps.places.PlacesService(map);
@@ -255,6 +257,8 @@ app.factory('mapService', function($http, hotelService) {
                 }
                 infoWindow.open(map, stripmarkers);
                 buildIWContent(place);
+
+
               });
         }
 

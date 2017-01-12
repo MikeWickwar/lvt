@@ -8,10 +8,14 @@ app.controller('VegasMapCtrl', ['$scope', 'mapService', function ($scope, mapSer
   console.log('vegas map controller loaded');
 
   //only will asign markers after init map is done
-  $.when(mapService.initVegasMap()).done(function() {
+  mapService.initVegasMap()
+  console.log("MAP SERVICE", mapService)
+  dfdVegas.done(function() {
+    console.log('timing is a real mother ');
     $scope.casinos = dealLocations;
     $scope.markers = dmarkers;
-
+    //should be d markers tryng some shit
+console.log($scope.markers, "MARKERS");
   })
   console.log(dmarkers, $scope.markers, "MARKERS ASSIGNED")
 

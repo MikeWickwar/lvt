@@ -5,8 +5,9 @@ app.factory('hotelService', function ($http) {
 
   var jsondata = {
     get: function () {
-      console.log('getting hotels');
-      return getHotels
+      // console.log('getting hotels');
+      // return getHotels
+      
     },
     post: function (postinghotel) {
       console.log(postinghotel, "here is the data about to be posted");
