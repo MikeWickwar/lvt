@@ -3,12 +3,21 @@ $defaultFont: 'Arial';
 $defaultColor: white;
 $mapHeight: 400px;
 $mapWidth: 400px;
+$listImgHeight: 30px;
+$listImgWidth: 30px;
 
 .centerme{text-align: center;}
 .defColor{columns:$defaultColor !important;}
 .scroll-x { overflow-x: auto; }
 .scroll-y { overflow-y: auto; }
-
+.map{
+  height: $mapHeight;
+  width: $mapWidth;
+}
+.imgInList{
+  height: $listImgHeight;
+  width: $listImgWidth;
+}
 //these are the settings for the general overflow rules
 #mainTopHeader{
   position: fixed;
@@ -25,7 +34,20 @@ $mapWidth: 400px;
   bottom: 0;
   z-index: 30;
  }
-.map{
-  height: $mapHeight;
-  width: $mapWidth;
+
+ .ng-enter, .ng-show {
+  -webkit-transition: 1s;
+  transition: 1s;
+  opacity: 0;
+}
+.ng-enter-active, .ng-show-active {
+  opacity: 1;
+}
+.ng-leave {
+  -webkit-transition: 1s;
+  transition: 1s;
+  opacity: 1;
+}
+.ng-leave-active {
+  opacity: 0;
 }

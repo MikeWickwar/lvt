@@ -10,6 +10,14 @@
 .scroll-y {
   overflow-y: auto; }
 
+.map {
+  height: 400px;
+  width: 400px; }
+
+.imgInList {
+  height: 30px;
+  width: 30px; }
+
 #mainTopHeader {
   position: fixed;
   height: 50px;
@@ -25,9 +33,21 @@
   bottom: 0;
   z-index: 30; }
 
-.map {
-  height: 400px;
-  width: 400px; }
+.ng-enter, .ng-show {
+  -webkit-transition: 1s;
+  transition: 1s;
+  opacity: 0; }
+
+.ng-enter-active, .ng-show-active {
+  opacity: 1; }
+
+.ng-leave {
+  -webkit-transition: 1s;
+  transition: 1s;
+  opacity: 1; }
+
+.ng-leave-active {
+  opacity: 0; }
 
 #view {
   display: flex;
