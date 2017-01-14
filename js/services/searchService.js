@@ -101,7 +101,7 @@ app.factory('searchService', function($http) {
       //  Search in the Chinatown district in San Francisco:
       'at': '36.170488,-115.142809',
       'size': 100,
-      'tf': 'html'
+      'callback': onResult
     };
 
     // Define a callback function to handle data on success:
