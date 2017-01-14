@@ -9,8 +9,8 @@ function hideNav() {
 
 
 
-app.controller('MainController', ['$scope','$http','$q', '$state', 'mapService',
- function ($scope, $http, $q, $state, mapService) {
+app.controller('MainController', ['$scope','$http','$q', '$state',
+ function ($scope, $http, $q, $state) {
 
     console.log('STATE', $state);
     if ($state.current.name === "index")

@@ -1,8 +1,10 @@
 <div id="">
-  <h1>
-    {{title}}
-  </h1>
-  <div id="service-helper"></div>
-  <ul class="reviews__content" id="reviews__content">
-  </ul>
+    <h1>
+      {{title}}
+    </h1>
+    <!-- <div id="<map name=""></map>" class="map"></div> -->
+    <div ng-repeat="place in places | orderBy : 'title'" value="{{place.id}}" ng-model="VegasMapCtrl">
+      <a href="{{place.href}}"><h3>{{place.title}}</h3></a>
+    </div>
+
 </div>

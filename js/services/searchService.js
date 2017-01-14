@@ -1,34 +1,46 @@
 app.factory('searchService', function($http) {
+  var platform = new H.service.Platform({
+  'app_id': 'ND93hRAGOUFcVdJvuaYK',
+  'app_code': 'ZrlSpjVlFF9GAcGwLUVXkA'
+});
     var jsondata = {
+        places: [],
+        dfdResult: $.Deferred(),
+        get: function() {
 
-        googlePlacesSearch: function() {
-          var service = new google.maps.places.PlacesService($('#service-helper').get(0)); // note that it removes the content inside div with tag '#service-helper'
+          // Obtain an Explore object through which to submit search
+          // requests:
+          var search = new H.places.Search(platform.getPlacesService()),
+            searchResult, error;
 
-         service.getDetails({
-             placeId: 'ChIJAwEf5VFQqEcRollj8j_kqnE'  // get a placeId using https://developers.google.com/places/web-service/place-id
-              }, function(place, status) {
-                  if (status === google.maps.places.PlacesServiceStatus.OK) {
-                    var resultcontent = '';
-                    for (i=0; i<place.reviews.length; ++i) {
-                      //window.alert('Name:' + place.name + '. ID: ' + place.place_id + '. address: ' + place.formatted_address);
-                      resultcontent += '<li class="reviews__item">'
-                      resultcontent += '<div class="reviews__review-er">' + place.reviews[i].author_name + '</div>';
-                      var reviewDate = new Date(place.reviews[i].time * 1000);
-                      var reviewDateMM = reviewDate.getMonth() + 1;
-                      var reviewDateFormatted = reviewDate.getDate() + '/' + reviewDateMM + '/' + reviewDate.getFullYear();
-                      resultcontent += '<div class="reviews__review-date">' + reviewDateFormatted + '</div>';
-                      resultcontent += '<div class="reviews__review-rating reviews__review-rating--' + place.reviews[i].rating +'"></div>';
-                      if (!!place.reviews[i].text){
-                        resultcontent += '<div class="reviews__review-comment">' + place.reviews[i].text + '</div>';
-                      }
-                      resultcontent += '</li>'
-                    }
-                    $('#reviews__content').append(resultcontent);
-                  }
-              });
-             return
+          // Define search parameters:
+          var params = {
+            // Plain text search for places with the word "hotel"
+            // associated with them:
+            'q': 'restaurants',
+            //  Search in the Chinatown district in San Francisco:
+            'at': '36.170488,-115.142809'
+          };
 
-        }
+          // Define a callback function to handle data on success:
+          function onResult(data) {
+             alert("success")
+             console.log(data);
+             jsondata.places.push(data)
+             jsondata.dfdResult.resolve()
+             return data
+          }
+
+          // Define a callback function to handle errors:
+          function onError(data) {
+            error = data;
+          }
+
+          // Run a search request with parameters, headers (empty), and
+          // callback functions:
+          return search.request(params, {}, onResult, onError);
+
       }
-    return jsondata;
+    }
+      return jsondata;
 });

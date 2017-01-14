@@ -1,5 +1,5 @@
 //settings
-$defaultFont: 'Damion', cursive;
+$defaultFont: 'Arial';
 $defaultColor: white;
 $mapHeight: 400px;
 $mapWidth: 400px;
@@ -25,3 +25,7 @@ $mapWidth: 400px;
   bottom: 0;
   z-index: 30;
  }
+.map{
+  height: $mapHeight;
+  width: $mapWidth;
+}

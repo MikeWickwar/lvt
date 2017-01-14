@@ -25,6 +25,10 @@
   bottom: 0;
   z-index: 30; }
 
+.map {
+  height: 400px;
+  width: 400px; }
+
 #view {
   display: flex;
   flex-direction: column;
