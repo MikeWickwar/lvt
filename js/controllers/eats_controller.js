@@ -4,17 +4,23 @@ app.controller('EatsCtrl', ['$scope','$http','$q', '$state', 'searchService', 'g
   searchService.getRestaurants()
   $scope.details = []
 
+  function onResult(){alert("gawh")}
+
   searchService.dfdRResult.done(function(){
     console.log(searchService.restaurants);
     $scope.places = searchService.restaurants[0].results.items;
-    for (var i = 0; i < $scope.places.length; i++) {
-      var detailsLink = $scope.places[i].href;
-      searchService.getPlaceDetails(detailsLink).success(function(details){
-        $scope.details.push(details)
-      })
-      console.log($scope.details);
+    for(i=0; i < $scope.places.length; i++){
+      $scope.places[i].detailsAva = false;
     }
-    // $scope.$apply()
   })
+
+  $scope.getDetails = function(link, i){
+    searchService.getPlaceDetails(link).success(function(details){
+      console.log(details);
+      $scope.places[i].details = details
+      $scope.places[i].detailsAva = true;
+    })
+    console.log($scope.details);
+  }
 
   }])

@@ -3,6 +3,7 @@ app.factory('searchService', function($http) {
   'app_id': 'ND93hRAGOUFcVdJvuaYK',
   'app_code': 'ZrlSpjVlFF9GAcGwLUVXkA'
   });
+
   var jsondata = {
       restaurants: [],
       bars: [],
@@ -25,7 +26,7 @@ app.factory('searchService', function($http) {
           //  Search in the Chinatown district in San Francisco:
           'at': '36.170488,-115.142809',
           'size': 100,
-          'tf': 'html'
+          'callback': 'onResult'
         };
 
         // Define a callback function to handle data on success:
@@ -43,9 +44,16 @@ app.factory('searchService', function($http) {
           console.log(error)
         }
 
-        // Run a search request with parameters, headers (empty), and
-        // callback functions:
-        return search.request(params, {}, onResult, onError);
+        $.ajax({
+          method: "GET",
+          url: "https://places.cit.api.here.com/places/v1/discover/search?at=36.170488,-115.142809&q=restaurant&app_id=ND93hRAGOUFcVdJvuaYK&app_code=ZrlSpjVlFF9GAcGwLUVXkA&pretty",
+          dataType: "JSONP",
+          success: function(results){alert("success")
+                                      onResult(results)}
+        })
+
+
+
 
     },
     getBars: function() {
@@ -62,8 +70,7 @@ app.factory('searchService', function($http) {
         'q': 'bars',
         //  Search in the Chinatown district in San Francisco:
         'at': '36.170488,-115.142809',
-        'size': 100,
-        'tf': 'html'
+        'size': 100
       };
 
       // Define a callback function to handle data on success:
@@ -81,6 +88,13 @@ app.factory('searchService', function($http) {
         console.log(error)
       }
 
+      $.ajax({
+        method: "GET",
+        url: "https://places.cit.api.here.com/places/v1/discover/search?at=36.170488,-115.142809&q=bars&app_id=ND93hRAGOUFcVdJvuaYK&app_code=ZrlSpjVlFF9GAcGwLUVXkA&pretty",
+        dataType: "JSONP",
+        success: function(){alert("success")},
+        onResult: function() {alert("success from result")}
+      })
       // Run a search request with parameters, headers (empty), and
       // callback functions:
       return search.request(params, {}, onResult, onError);
