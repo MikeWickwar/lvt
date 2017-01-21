@@ -15,12 +15,16 @@ app.controller('EatsCtrl', ['$scope','$http','$q', '$state', 'searchService', 'g
   })
 
   $scope.getDetails = function(link, i){
-    searchService.getPlaceDetails(link).success(function(details){
-      console.log(details);
-      $scope.places[i].details = details
-      $scope.places[i].detailsAva = true;
-    })
-    console.log($scope.details);
+    if($scope.places[i].detailsAva == true){
+      $scope.places[i].detailsAva = false
+    }else{
+      searchService.getPlaceDetails(link).success(function(details){
+        $scope.places[i].details = details
+        $scope.places[i].detailsAva = true;
+        console.log(details, "details");
+      })
+      console.log($scope.details);
+    }
   }
 
   }])

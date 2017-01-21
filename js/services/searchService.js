@@ -12,24 +12,14 @@ app.factory('searchService', function($http) {
       dfdBResult: $.Deferred(),
       dfdCResult: $.Deferred(),
       getRestaurants: function() {
-
-        // Obtain an Explore object through which to submit search
-        // requests:
-        var search = new H.places.Search(platform.getPlacesService()),
-          searchResult, error;
-
-        // Define search parameters:
-        var params = {
-          // Plain text search for places with the word "hotel"
-          // associated with them:
-          'q': 'restaurants',
-          //  Search in the Chinatown district in San Francisco:
-          'at': '36.170488,-115.142809',
-          'size': 100,
-          'callback': 'onResult'
-        };
-
-        // Define a callback function to handle data on success:
+        $.ajax({
+          method: "GET",
+          url: "https://places.cit.api.here.com/places/v1/discover/search?at=36.170488,-115.142809&q=restaurant&size=100&app_id=ND93hRAGOUFcVdJvuaYK&app_code=ZrlSpjVlFF9GAcGwLUVXkA&pretty",
+          dataType: "JSONP",
+          success: function(results){
+            alert("success")
+            onResult(results)}
+        })
         function onResult(data) {
           //  alert("success")
            console.log(data);
@@ -37,43 +27,16 @@ app.factory('searchService', function($http) {
            jsondata.dfdRResult.resolve()
            return data
         }
-
-        // Define a callback function to handle errors:
-        function onError(data) {
-          error = data;
-          console.log(error)
-        }
-
-        $.ajax({
-          method: "GET",
-          url: "https://places.cit.api.here.com/places/v1/discover/search?at=36.170488,-115.142809&q=restaurant&app_id=ND93hRAGOUFcVdJvuaYK&app_code=ZrlSpjVlFF9GAcGwLUVXkA&pretty",
-          dataType: "JSONP",
-          success: function(results){alert("success")
-                                      onResult(results)}
-        })
-
-
-
-
     },
     getBars: function() {
-
-      // Obtain an Explore object through which to submit search
-      // requests:
-      var search = new H.places.Search(platform.getPlacesService()),
-        searchResult, error;
-
-      // Define search parameters:
-      var params = {
-        // Plain text search for places with the word "hotel"
-        // associated with them:
-        'q': 'bars',
-        //  Search in the Chinatown district in San Francisco:
-        'at': '36.170488,-115.142809',
-        'size': 100
-      };
-
-      // Define a callback function to handle data on success:
+      $.ajax({
+        method: "GET",
+        url: "https://places.cit.api.here.com/places/v1/discover/search?at=36.170488,-115.142809&q=bars&size=100&app_id=ND93hRAGOUFcVdJvuaYK&app_code=ZrlSpjVlFF9GAcGwLUVXkA&pretty",
+        dataType: "JSONP",
+        success: function(results){
+          alert("success")
+          onResult(results)}
+      })
       function onResult(data) {
         //  alert("success")
          console.log(data);
@@ -81,44 +44,16 @@ app.factory('searchService', function($http) {
          jsondata.dfdBResult.resolve()
          return data
       }
-
-      // Define a callback function to handle errors:
-      function onError(data) {
-        error = data;
-        console.log(error)
-      }
-
-      $.ajax({
-        method: "GET",
-        url: "https://places.cit.api.here.com/places/v1/discover/search?at=36.170488,-115.142809&q=bars&app_id=ND93hRAGOUFcVdJvuaYK&app_code=ZrlSpjVlFF9GAcGwLUVXkA&pretty",
-        dataType: "JSONP",
-        success: function(){alert("success")},
-        onResult: function() {alert("success from result")}
-      })
-      // Run a search request with parameters, headers (empty), and
-      // callback functions:
-      return search.request(params, {}, onResult, onError);
-
   },
   getCasinos: function() {
-
-    // Obtain an Explore object through which to submit search
-    // requests:
-    var search = new H.places.Search(platform.getPlacesService()),
-      searchResult, error;
-
-    // Define search parameters:
-    var params = {
-      // Plain text search for places with the word "hotel"
-      // associated with them:
-      'q': 'gambleing',
-      //  Search in the Chinatown district in San Francisco:
-      'at': '36.170488,-115.142809',
-      'size': 100,
-      'callback': onResult
-    };
-
-    // Define a callback function to handle data on success:
+    $.ajax({
+      method: "GET",
+      url: "https://places.cit.api.here.com/places/v1/discover/search?at=36.170488,-115.142809&q=gambleing&size=100&app_id=ND93hRAGOUFcVdJvuaYK&app_code=ZrlSpjVlFF9GAcGwLUVXkA&pretty",
+      dataType: "JSONP",
+      success: function(results){
+        alert("success")
+        onResult(results)}
+    })
     function onResult(data) {
       //  alert("success")
        console.log(data);
@@ -126,17 +61,6 @@ app.factory('searchService', function($http) {
        jsondata.dfdCResult.resolve()
        return data
     }
-
-    // Define a callback function to handle errors:
-    function onError(data) {
-      error = data;
-      console.log(error)
-    }
-
-    // Run a search request with parameters, headers (empty), and
-    // callback functions:
-    return search.request(params, {}, onResult, onError);
-
 },
     getPlaceDetails: function(href){
       if ( !promise ) {
