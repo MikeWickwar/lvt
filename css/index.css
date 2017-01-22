@@ -18,13 +18,44 @@
   height: 30px;
   width: 30px; }
 
+.allcontainers {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.informationContainer {
+  width: 80%;
+  border: 1px solid black;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  margin-bottom: 10px;
+  padding: 5px; }
+
+.informationContainer:first-of-type {
+  margin-top: 10px; }
+
+.infoTitle {
+  font-size: 18px;
+  align-self: center; }
+
+.bottomInfo {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5px; }
+
+.catigoryTitle {
+  font-size: 26px; }
+
+#view > div > div > div > a > div {
+  text-align: center; }
+
 #mainTopHeader {
   position: fixed;
   height: 50px;
   top: 0; }
 
 #view {
-  padding-top: 75px;
+  padding-top: 50px;
   padding-bottom: 50px; }
 
 #mainBottomFooter {
@@ -35,16 +66,16 @@
 
 .ng-enter, .ng-show {
   -webkit-transition: 1s;
-  transition: 1s;
+  transition: all 1s linear;
   opacity: 0; }
 
 .ng-enter-active, .ng-show-active {
   opacity: 1; }
 
-.ng-leave {
-  -webkit-transition: 1s;
-  transition: 1s;
-  opacity: 1; }
+.ng-leave, .ng-hide {
+  -webkit-transition: .2s;
+  transition: all .2s linear;
+  opacity: 0; }
 
 .ng-leave-active {
   opacity: 0; }

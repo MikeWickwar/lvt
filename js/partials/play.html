@@ -1,18 +1,24 @@
-<div id="">
-    <h1>
+<div class='inViewContainer' id="">
+    <!-- <div class='catigoryTitle'>
       {{title}}
-    </h1>
+    </div> -->
     <!-- <div id="<map name=""></map>" class="map"></div> -->
-    <div ng-repeat="place in places track by $index| orderBy : 'title'" value="{{place.id}}" ng-model="VegasMapCtrl">
-      <a ng-click="getDetails(place.href, $index)" class="fade"><h3>{{place.title}}</h3></a>
+    <div class="allcontainers">
+    <div ng-animate='animate'
+         style="transition-delay: {{$index * 200}}ms"
+         ng-repeat="place in places track by $index| orderBy : 'title'"
+         value="{{place.id}}" ng-model="VegasMapCtrl"
+         class="informationContainer">
+
+      <a ng-click="getDetails(place.href, $index)" class="fade"><div class='infoTitle'>{{place.title}}</div></a>
       <div class="details" ng-show="place.detailsAva">
         <div>{{place.details.location.address.text}}</div>
         <div>{{place.details.extended.openingHours.text}}</div>
-        <div ng-repeat="tag in place.details.tags track by $index| orderBy : 'title'">
-          {{tag.title}}
+        <div class='bottomInfo'>
+          <a href="{{place.details.view}}" target="_blank" class='placeHereLink'>View on Here</a>
+          <div class="add to favorites"><i class='fa fa-heart'></i></div>
         </div>
-
       </div>
+    </div>
   </div>
-
 </div>
