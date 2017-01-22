@@ -4,8 +4,6 @@ app.controller('EatsCtrl', ['$scope','$http','$q', '$state', 'searchService', 'g
   searchService.getRestaurants()
   $scope.details = []
 
-  function onResult(){alert("gawh")}
-
   searchService.dfdRResult.done(function(){
     console.log(searchService.restaurants);
     $scope.places = searchService.restaurants[0].results.items;

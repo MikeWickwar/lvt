@@ -7,10 +7,11 @@
       <a ng-click="getDetails(place.href, $index)" class="fade"><h3>{{place.title}}</h3></a>
       <div class="details" ng-show="place.detailsAva">
         <div>{{place.details.location.address.text}}</div>
+        <div>{{place.details.extended.openingHours.text}}</div>
         <div ng-repeat="tag in place.details.tags track by $index| orderBy : 'title'">
           {{tag.title}}
         </div>
-        <!-- <img src={{detail.media.images.items[0].src}} alt=""> -->
+
       </div>
   </div>
 
