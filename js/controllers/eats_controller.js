@@ -1,5 +1,5 @@
-app.controller('EatsCtrl', ['$scope','$http','$q', '$state', 'searchService', 'geoCodingService',
- function ($scope, $http, $q, $state, searchService, geoCodingService) {
+app.controller('EatsCtrl', ['$scope','$http','$q', '$state', 'searchService', 'geoCodingService', 'favoritesService',
+ function ($scope, $http, $q, $state, searchService, geoCodingService, favoritesService) {
   $scope.title = "Places to Eat..."
   searchService.getRestaurants()
   $scope.details = []
@@ -24,5 +24,12 @@ app.controller('EatsCtrl', ['$scope','$http','$q', '$state', 'searchService', 'g
       console.log($scope.details);
     }
   }
+
+   $scope.addToFavs = function(data){
+      console.log(data, "place to favoite");
+      var place = data
+      favoritesService.post(place)
+   }
+
 
   }])
