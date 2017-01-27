@@ -25,7 +25,6 @@ app.factory('favoritesService', function ($http) {
       console.log('getting favorites');
       var favCookie = localStorage.gvgfavorites
       if (favCookie != ''){
-        alert('found')
           console.log(favCookie, "FAV COOOKIE");
         return favCookie
       }
@@ -36,12 +35,28 @@ app.factory('favoritesService', function ($http) {
       console.log(newFavotie, "adding to favorites");
       //this will obvs have to change when deployed to the deployed url
       var strfavorites = {id: newFavotie.id,
-                          title: newFavotie.title
+                          title: newFavotie.title,
+                          href: newFavotie.href
                           };
 
-      favorites.push(strfavorites)
-      console.log(favorites);
-      localStorage.setItem("gvgfavorites", JSON.stringify(favorites))
+      var favs = localStorage.gvgfavorites
+      favs = JSON.parse(favs)
+        favs.push(strfavorites)
+        localStorage.setItem("gvgfavorites", JSON.stringify(favs))
+        console.log(favs, favs.includes(strfavorites.title), "fav is new, added");
+
+    },
+    delete: function(delFavorite){
+      var favs = localStorage.gvgfavorites
+      favs = JSON.parse(favs)
+      for (var i = 0; i < favs.length; i++) {
+        if(favs[i].id == delFavorite.id){
+          console.log(favs[i].id, delFavorite.id, "favs match");
+          favs.splice(i, 1)
+        }
+      }
+      localStorage.setItem("gvgfavorites", JSON.stringify(favs))
+
     }
   }
   return jsondata
