@@ -15,18 +15,18 @@ app.factory('favoritesService', function ($http) {
    function read_cookie(cookieName) {
      var re = new RegExp('[; ]'+cookieName+'=([^\\s;]*)');
      var sMatch = (' '+document.cookie).match(re);
-     if (cookieName && sMatch) return unescape(sMatch[1]);
+     if (cookieName && sMatch)
+      return unescape(sMatch[1]);
      return '';
     }
 
   var jsondata = {
     get: function () {
       console.log('getting favorites');
-      var favCookie = read_cookie("gvgfavorites")
+      var favCookie = localStorage.gvgfavorites
       if (favCookie != ''){
         alert('found')
-        favCookie = favCookie
-        console.log(favCookie, "FAV COOOKIE");
+          console.log(favCookie, "FAV COOOKIE");
         return favCookie
       }
       return favorites
@@ -40,10 +40,8 @@ app.factory('favoritesService', function ($http) {
                           };
 
       favorites.push(strfavorites)
-
-      bake_cookie("gvgfavorites",  strfavorites.toString(), 1)
-
-      return favorites
+      console.log(favorites);
+      localStorage.setItem("gvgfavorites", JSON.stringify(favorites))
     }
   }
   return jsondata
