@@ -23,6 +23,7 @@ app.factory('favoritesService', function ($http) {
   var jsondata = {
     get: function () {
       console.log('getting favorites');
+      
       var favCookie = localStorage.gvgfavorites
       if (favCookie != ''){
           console.log(favCookie, "FAV COOOKIE");
@@ -32,12 +33,15 @@ app.factory('favoritesService', function ($http) {
 
     },
     post: function (newFavotie) {
-      console.log(newFavotie, "adding to favorites");
+      console.log(newFavotie, "adding to favorites")
+
       //this will obvs have to change when deployed to the deployed url
       var strfavorites = {id: newFavotie.id,
                           title: newFavotie.title,
                           href: newFavotie.href
                           };
+
+      favorites.push(strfavorites)
 
       var favs = localStorage.gvgfavorites
       favs = JSON.parse(favs)
