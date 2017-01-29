@@ -1,8 +1,12 @@
 app.controller('FavsCtrl', ['$scope','$http','$q', '$state', 'favoritesService', 'searchService',
  function ($scope, $http, $q, $state, favoritesService, searchService) {
   $scope.title = "Favorites"
-
-  var places = favoritesService.get()
+  if ('localStorage' in window && window.localStorage !== null) {
+    var places = favoritesService.get()
+  }else{
+    alert("Phone alert balls")
+    var places = favoritesService.getMobile()
+  }
   $scope.places = JSON.parse(places);
   console.log($scope.places);
 

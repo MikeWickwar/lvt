@@ -23,12 +23,16 @@ app.factory('favoritesService', function ($http) {
   var jsondata = {
     get: function () {
       console.log('getting favorites');
-      
       var favCookie = localStorage.gvgfavorites
       if (favCookie != ''){
           console.log(favCookie, "FAV COOOKIE");
         return favCookie
       }
+      return favorites
+
+    },
+    getMobile: function () {
+      console.log('getting mobile favorites');
       return favorites
 
     },
