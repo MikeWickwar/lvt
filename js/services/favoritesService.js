@@ -33,6 +33,7 @@ app.factory('favoritesService', function ($http) {
     },
     getMobile: function () {
       console.log('getting mobile favorites');
+      alert('mobile isworking ')
       return favorites
 
     },
