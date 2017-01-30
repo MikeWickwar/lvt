@@ -29,7 +29,6 @@ app.factory('favoritesService', function ($http) {
         return favCookie
       }
       return favorites
-
     },
     getMobile: function () {
       console.log('getting mobile favorites');
@@ -47,12 +46,15 @@ app.factory('favoritesService', function ($http) {
                           };
 
       favorites.push(strfavorites)
-
-      var favs = localStorage.gvgfavorites
-      favs = JSON.parse(favs)
-        favs.push(strfavorites)
-        localStorage.setItem("gvgfavorites", JSON.stringify(favs))
-        console.log(favs, favs.includes(strfavorites.title), "fav is new, added");
+      if(localStorage.gvgfavorites){
+        var favs = localStorage.gvgfavorites
+        favs = JSON.parse(favs)
+      }else{
+        var favs = []
+      }
+      favs.push(strfavorites)
+      localStorage.setItem("gvgfavorites", JSON.stringify(favs))
+      console.log(favs, favs.includes(strfavorites.title), "fav is new, added");
 
     },
     delete: function(delFavorite){

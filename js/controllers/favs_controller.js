@@ -4,7 +4,8 @@ app.controller('FavsCtrl', ['$scope','$http','$q', '$state', 'favoritesService',
   if ('localStorage' in window && window.localStorage !== null) {
     var places = favoritesService.get()
     alert("nonPhone alert balls")
-
+    alert(typeof localStorage)
+    alert(typeof localStorage.gvgfavorites)
   }else{
     alert("Phone alert balls")
     var places = favoritesService.getMobile()
