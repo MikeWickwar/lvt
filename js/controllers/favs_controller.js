@@ -3,11 +3,7 @@ app.controller('FavsCtrl', ['$scope','$http','$q', '$state', 'favoritesService',
   $scope.title = "Favorites"
   if ('localStorage' in window && window.localStorage !== null) {
     var places = favoritesService.get()
-    alert("nonPhone alert balls")
-    alert(typeof localStorage)
-    alert(typeof localStorage.gvgfavorites)
   }else{
-    alert("Phone alert balls")
     var places = favoritesService.getMobile()
   }
   $scope.places = JSON.parse(places);
