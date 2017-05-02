@@ -1,8 +1,6 @@
 <link rel="stylesheet" href="/css/maps.css" media="screen" title="no title" charset="utf-8">
 
 <div class="mw-header" id="mapsHeader">
-  <h3><i class="fa fa-fire" aria-hidden="true"></i>Heat Maps<i class="fa fa-fire" aria-hidden="true"></i></h1>
-
   <input class="btn btn-danger" id="btnMapToggler" type="button" name="toggleMaps" value="Show Me {{mapName}}">
   <input class="btn btn-danger" id="btnUserMapToggler" type="button" name="showUserMap" value="{{userMapName}}">
 </div>
@@ -14,10 +12,10 @@
       <a class="locationLink" href="#" ng-mouseover="openInfoWindow($event, marker)" ng-click="hotelPanelInit($event, marker)">{{marker.title}}</a>
     </div>
   </div>
-  <label for="repeatSelectVegas"> Hotels: </label>
+  <!-- <label for="repeatSelectVegas"> Hotels: </label>
     <select name="repeatSelectVegas" id="repeatSelectVegas">
       <option ng-repeat="marker in markers | orderBy : 'title'" value="{{marker.id}}" ng-model="VegasMapCtrl" ng-change="openInfoWindow($event, marker)">{{marker.title}}</option>
-    </select>
+    </select> -->
 </div>
 
 <div ng-controller='StripMapCtrl' id="stripMapDiv">

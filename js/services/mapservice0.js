@@ -41,7 +41,7 @@ app.factory('mapService', function($http, hotelService) {
         var dsearch = {
          location: lasVegas,
          bounds: map.getBounds(),
-         radius: '5000',
+         radius: '0',
          types: ['lodging']
         }
         console.log(dsearch  , "seach mo", map);
@@ -190,7 +190,7 @@ app.factory('mapService', function($http, hotelService) {
        var search = {
          location: lasVegas,
          bounds: map.getBounds(),
-         radius: '1500',
+         radius: '500',
          types: ['lodging']
        }
   console.log(search  , "seach mo", map);

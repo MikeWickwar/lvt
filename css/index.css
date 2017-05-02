@@ -11,8 +11,8 @@
   overflow-y: auto; }
 
 .map {
-  height: 400px;
-  width: 400px; }
+  height: 350px;
+  width: 300px; }
 
 .imgInList {
   height: 30px;
@@ -64,20 +64,23 @@
   bottom: 0;
   z-index: 30; }
 
-.ng-enter, .ng-show {
+.ng-enter:not(#vegasStripMap):not(#vegasMap):not(#vegasMapDiv),
+.ng-show:not(#vegasStripMap):not(#vegasMap):not(#vegasMapDiv) {
   -webkit-transition: 1s;
   transition: all 1s linear;
   opacity: 0; }
 
-.ng-enter-active, .ng-show-active {
+.ng-enter-active:not(#vegasStripMap):not(#vegasMap):not(#vegasMapDiv),
+.ng-show-active:not(#vegasStripMap):not(#vegasMap):not(#vegasMapDiv) {
   opacity: 1; }
 
-.ng-leave, .ng-hide {
+.ng-leave:not(#vegasStripMap):not(#vegasMap):not(#vegasMapDiv),
+.ng-hide:not(#vegasStripMap):not(#vegasMap):not(#vegasMapDiv) {
   -webkit-transition: .2s;
   transition: all .2s linear;
   opacity: 0; }
 
-.ng-leave-active {
+.ng-leave-active:not(#vegasStripMap):not(#vegasMap):not(#vegasMapDiv) {
   opacity: 0; }
 
 html * {
